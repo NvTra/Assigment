@@ -45,6 +45,7 @@ public class DigitalBankTest {
         Path path = Paths.get("store", "customers.txt");
         activeBank.addCustomers(String.valueOf(path));
         activeBank.getCustomerById("040095012040").addAccount(new SavingsAccount("040095012040","123456",100000));
+        activeBank.showCustomers();
     }
     @Test
     public void testlinhtinh(){

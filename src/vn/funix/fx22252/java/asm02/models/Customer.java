@@ -115,10 +115,12 @@ public class Customer extends User implements Serializable {
     public void displayInformationN() {
         DecimalFormat df = new DecimalFormat("#,###đ");
         //hien thi thong tin TK
-        System.out.printf("%-14s|%10s |%8s | %22s\n", getCustomerId(), getName(), (isPremium() ? "Premium" : "Normal"), df.format(getTotalAccountBalance()));
-        List<Account> accounts = this.getAccountsN();
-        for (Account account : accounts) {
-            System.out.println(account.toString());
+        System.out.printf("%-14s|%20s |%8s | %22s\n", getCustomerId(), getName(), (isPremium() ? "Premium" : "Normal"), df.format(getTotalAccountBalance()));
+        List<Account> accounts = AccountDao.list();
+        if (accounts.size() > 0) {
+            for (int j = 0; j < accounts.size(); j++) {
+                System.out.println((j + 1) + "   " + accounts.get(j).toString());
+            }
         }
     }
 
