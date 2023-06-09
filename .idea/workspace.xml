@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4e0eb08b-08ef-4db4-89b7-14449731455c" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="JUnit4 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+    <option name="showPreview" value="true" />
+  </component>
+  <component name="ProjectId" id="2PzVNOUgNlcro6rdDP33hV5xQxu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "create.test.in.the.same.root": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/1.HocLapTrinhFunix/JavaPRO192x.3.1.VN/PRO192x_ASM_tranvfx22252",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="vn.funix.fx22252.java.asm03.models" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\1.HocLapTrinhFunix\JavaPRO192x.3.1.VN\PRO192x_ASM_tranvfx22252\store" />
+      <recent name="D:\1.HocLapTrinhFunix\JavaPRO192x.3.1.VN\PRO192x_ASM_tranvfx22252" />
+      <recent name="D:\1.HocLapTrinhFunix\JavaPRO192x.3.1.VN\PRO192x_ASM_tranvfx22252\src\vn\funix\fx22252\java\asm04" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="vn.funix.fx22252.java.asm04.service" />
+      <recent name="vn.funix.fx22252.java.asm04.dao" />
+      <recent name="vn.funix.fx22252.java.asm03.models" />
+      <recent name="vn.funix.fx22252.java.asm03" />
+      <recent name="vn.funix.fx22252.java.asm02.models" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.DigitalBankTest.testlinhtinh">
+    <configuration name="Asm04" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="vn.funix.fx22252.java.asm04.Asm04" />
+      <module name="PRO192x_ASM_tranvfx22252" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vn.funix.fx22252.java.asm04.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DigitalBankTest.addAccount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PRO192x_ASM_tranvfx22252" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vn.funix.fx22252.java.asm03.models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="vn.funix.fx22252.java.asm03.models" />
+      <option name="MAIN_CLASS_NAME" value="vn.funix.fx22252.java.asm03.models.DigitalBankTest" />
+      <option name="METHOD_NAME" value="addAccount" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DigitalBankTest.addCustomers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PRO192x_ASM_tranvfx22252" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vn.funix.fx22252.java.asm03.models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="vn.funix.fx22252.java.asm03.models" />
+      <option name="MAIN_CLASS_NAME" value="vn.funix.fx22252.java.asm03.models.DigitalBankTest" />
+      <option name="METHOD_NAME" value="addCustomers" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DigitalBankTest.showCustomers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PRO192x_ASM_tranvfx22252" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vn.funix.fx22252.java.asm03.models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="vn.funix.fx22252.java.asm03.models" />
+      <option name="MAIN_CLASS_NAME" value="vn.funix.fx22252.java.asm03.models.DigitalBankTest" />
+      <option name="METHOD_NAME" value="showCustomers" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DigitalBankTest.testlinhtinh" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PRO192x_ASM_tranvfx22252" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vn.funix.fx22252.java.asm03.models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="vn.funix.fx22252.java.asm03.models" />
+      <option name="MAIN_CLASS_NAME" value="vn.funix.fx22252.java.asm03.models.DigitalBankTest" />
+      <option name="METHOD_NAME" value="testlinhtinh" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.DigitalBankTest.testlinhtinh" />
+        <item itemvalue="Application.Asm04" />
+        <item itemvalue="JUnit.DigitalBankTest.showCustomers" />
+        <item itemvalue="JUnit.DigitalBankTest.addAccount" />
+        <item itemvalue="JUnit.DigitalBankTest.addCustomers" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4e0eb08b-08ef-4db4-89b7-14449731455c" name="Changes" comment="" />
+      <created>1684459857650</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684459857650</updated>
+      <workItem from="1684459858836" duration="102000" />
+      <workItem from="1684460015233" duration="1406000" />
+      <workItem from="1684468901128" duration="464000" />
+      <workItem from="1684481730107" duration="7965000" />
+      <workItem from="1684492600889" duration="9556000" />
+      <workItem from="1684542288593" duration="511000" />
+      <workItem from="1684545302022" duration="1589000" />
+      <workItem from="1684547519941" duration="9778000" />
+      <workItem from="1684572603731" duration="76000" />
+      <workItem from="1684572710256" duration="7793000" />
+      <workItem from="1684596366510" duration="518000" />
+      <workItem from="1684633621188" duration="23597000" />
+      <workItem from="1684681068066" duration="1023000" />
+      <workItem from="1684719034853" duration="18368000" />
+      <workItem from="1684751177189" duration="347000" />
+      <workItem from="1684892346966" duration="100000" />
+      <workItem from="1684892639823" duration="238000" />
+      <workItem from="1684932251054" duration="3165000" />
+      <workItem from="1684999013286" duration="194000" />
+      <workItem from="1685000085957" duration="264000" />
+      <workItem from="1685084706616" duration="7887000" />
+      <workItem from="1685177156409" duration="15304000" />
+      <workItem from="1685232679333" duration="7235000" />
+      <workItem from="1685321740398" duration="31671000" />
+      <workItem from="1685503441660" duration="11979000" />
+      <workItem from="1685522213658" duration="5501000" />
+      <workItem from="1685529159961" duration="53000" />
+      <workItem from="1685713493063" duration="2063000" />
+      <workItem from="1685715684961" duration="1983000" />
+      <workItem from="1685718002074" duration="2200000" />
+      <workItem from="1685753560451" duration="311000" />
+      <workItem from="1685946442559" duration="5208000" />
+      <workItem from="1686045306092" duration="2325000" />
+      <workItem from="1686105793758" duration="29707000" />
+      <workItem from="1686184414359" duration="5274000" />
+      <workItem from="1686191781090" duration="28000" />
+      <workItem from="1686193069402" duration="12799000" />
+      <workItem from="1686217238471" duration="11625000" />
+      <workItem from="1686238776796" duration="512000" />
+      <workItem from="1686272715036" duration="5738000" />
+      <workItem from="1686279431663" duration="19123000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="vn.funix.fx22252.java.asm03.models.DigitalBank" memberName="id" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="objects" language="JAVA" />
+      </configuration>
+      <configuration name="Application">
+        <watch expression="AccountDao.list()" language="JAVA" />
+        <watch expression="accounts" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

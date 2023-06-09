@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3dd06e19-1409-4f21-8ac1-1d711457887e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../src/vn/funix/fx22252/java/asm02/models/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/vn/funix/fx22252/java/asm02/models/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/vn/funix/fx22252/java/asm02/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/vn/funix/fx22252/java/asm02/models/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/vn/funix/fx22252/java/asm02/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/vn/funix/fx22252/java/asm02/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/vn/funix/fx22252/java/asm03/models/DigitalBank.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/vn/funix/fx22252/java/asm03/models/DigitalBank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/vn/funix/fx22252/java/asm03/models/DigitalBankTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/vn/funix/fx22252/java/asm03/models/DigitalBankTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/vn/funix/fx22252/java/asm03/models/SavingsAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/vn/funix/fx22252/java/asm03/models/SavingsAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/vn/funix/fx22252/java/asm03/models/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/vn/funix/fx22252/java/asm03/models/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/vn/funix/fx22252/java/asm03/test/SavingsAccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/vn/funix/fx22252/java/asm03/test/SavingsAccountTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/vn/funix/fx22252/java/asm04/Asm04.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/vn/funix/fx22252/java/asm04/Asm04.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/vn/funix/fx22252/java/asm04/service/BinaryFileServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/vn/funix/fx22252/java/asm04/service/BinaryFileServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts.dat" beforeDir="false" afterPath="$PROJECT_DIR$/accounts.dat" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2Qvf1QPMexJTZ99IiVN3jdCQMOt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3dd06e19-1409-4f21-8ac1-1d711457887e" name="Changes" comment="" />
+      <created>1686238759472</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1686238759472</updated>
+      <workItem from="1686238760890" duration="8000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
