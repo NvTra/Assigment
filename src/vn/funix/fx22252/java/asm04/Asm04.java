@@ -3,6 +3,7 @@ package vn.funix.fx22252.java.asm04;
 
 import vn.funix.fx22252.java.asm02.models.Customer;
 import vn.funix.fx22252.java.asm03.models.DigitalBank;
+import vn.funix.fx22252.java.asm04.dao.AccountDao;
 import vn.funix.fx22252.java.asm04.dao.CustomerDao;
 
 import java.io.IOException;
@@ -86,7 +87,7 @@ public class Asm04 {
             maKH = sc.nextLine();
             if (!activeBank.validateCustomerId(maKH)) {
                 System.out.println("Khong tim thay khach hang " + maKH + ", tac vu khong thanh cong");
-            } else if (!activeBank.isCustomerExisted(CustomerDao.list(),new Customer(null,maKH))) {
+            } else if (!activeBank.isCustomerExisted(CustomerDao.list(), new Customer(null, maKH))) {
                 System.out.println("Khong tim thay khach hang " + maKH + ", tac vu khong thanh cong");
             } else {
                 break;
@@ -96,11 +97,24 @@ public class Asm04 {
 
     }
 
-    public static void transfer() {
-
+    public static void transfer() throws IOException {
+        sc.nextLine();
+        String customerId;
+        while (true) {
+            System.out.println("Nhap ma so cua khach hang: ");
+            customerId = sc.nextLine();
+            if (!activeBank.validateCustomerId(customerId)) {
+                System.out.println("Ma so khong dung");
+            } else if (!activeBank.isCustomerExisted(customerId)) {
+                System.out.println("Khong tim thay khach hang " + customerId + ", tac vu khong thanh cong");
+            } else {
+                break;
+            }
+        }
+        activeBank.tranfers(new Scanner(System.in), customerId);
     }
 
-    public static void withdraw() {
+    public static void withdraw() throws IOException {
         sc.nextLine();
         String customerId;
         while (true) {
@@ -115,6 +129,8 @@ public class Asm04 {
             }
         }
         activeBank.withdraw(new Scanner(System.in), customerId);
-            }
+        CustomerDao.save(activeBank.getCustomers());
+        AccountDao.save(activeBank.getCustomerById(customerId).getAccounts());
+    }
 
 }

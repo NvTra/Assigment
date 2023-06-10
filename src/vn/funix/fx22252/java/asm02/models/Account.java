@@ -1,8 +1,8 @@
 package vn.funix.fx22252.java.asm02.models;
 
-import vn.funix.fx22252.java.asm03.models.DigitalBank;
+
 import vn.funix.fx22252.java.asm03.models.Transaction;
-import vn.funix.fx22252.java.asm04.dao.CustomerDao;
+
 
 import java.io.Serializable;
 import java.text.DecimalFormat;
@@ -102,13 +102,7 @@ public class Account implements Serializable {
     }
 
     //Asm04
-//    public Customer getCustomer() {
-//        // Khi thông tin khách hàng được lưu vào file,
-//        // đối tượng Account chỉ lưu customerId,
-//        // do đó phải truy vấn khách hàng từ đối tượng CustomerList
-//        List<Customer> customers = CustomerDao.list();
-//
-//    }
+
 
     public ArrayList<Transaction> getTransactions(ArrayList<Transaction> transactionsList, String AccountNumber) {
 
@@ -141,22 +135,9 @@ public class Account implements Serializable {
             balance -= amount;
         }
         Transaction transaction = new Transaction(getAccountNumber(), amount, new Date(), true, type);
+        addTransaction(transaction);
         System.out.println("Giao dịch thanh cong");
     }
 
-    public static Account input(Scanner scanner) {
-        System.out.println("Nhap so tai khoan: ");
-        String accountNumber = scanner.nextLine();
-        System.out.println("Nhap so du ban dau");
-        double balance = scanner.nextDouble();
-        if (balance <= 50000) {
-            System.out.println("So tien khong hop le");
-            return null;
-        }
-        Transaction transaction = new Transaction(accountNumber, balance, new Date(), true, TransactionType.DEPOSIT);
-        Account account = new Account(accountNumber, balance);
-        account.createTransaction(balance, new Date(), true, TransactionType.DEPOSIT);
-        System.out.println("them tai khoan thanh cong");
-        return account;
-    }
+
 }

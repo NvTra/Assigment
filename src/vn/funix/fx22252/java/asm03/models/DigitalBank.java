@@ -54,10 +54,7 @@ public class DigitalBank extends Bank {
         if (!pattern.matcher(accountNumber).find()) {
             return false;
         }
-        if (super.isValidAccount(accountNumber)) {
-            return false;
-        }
-        return true;
+        return !super.isValidAccount(accountNumber);
     }
 
     public boolean withdraw(String customerId, String accountNumber, double amount) {
@@ -106,8 +103,8 @@ public class DigitalBank extends Bank {
             if (CustomerDao.list().isEmpty()) {
                 CustomerDao.save(getCustomers());
             } else {
-                for (Object object : CustomerDao.list()) {
-                    getCustomers().add((Customer) object);
+                for (Customer object : CustomerDao.list()) {
+                    getCustomers().add(object);
                 }
             }
         } catch (FileNotFoundException e) {
@@ -130,21 +127,10 @@ public class DigitalBank extends Bank {
 
 
     public void addSavingAccount(Scanner scanner, String customerId) throws IOException {
-        for (Customer customer : getCustomers()) {
+        for (Customer customer : CustomerDao.list()) {
             if (customer.getCustomerId().equals(customerId)) {
-                String maTK;
-                do {
-                    System.out.print("Nhap so tai khoan gom 6 chu so: ");
-                    maTK = scanner.nextLine();
-                } while (!nullAccount(maTK));
-//                ||isAccountExisted(AccountDao.list(),new Account(maTK,0))
-                double balance;
-                do {
-                    System.out.print("Nhap so du tai khoan >= 50000đ: ");
-                    balance = scanner.nextDouble();
-                } while (balance < 50000);
-                customer.addAccount(new SavingsAccount(customerId,maTK,balance));
-                AccountDao.save(customer.getAccounts());
+                customer.input(scanner);
+                CustomerDao.save(CustomerDao.list());
                 System.out.println("Tao tai khoan thanh cong");
             }
         }
@@ -154,20 +140,21 @@ public class DigitalBank extends Bank {
     public void withdraw(Scanner scanner, String customerId) {
         for (Customer customer : getCustomers()) {
             if ((customer.getCustomerId().equals(customerId))) {
-                customer.displayInformation();
+                customer.displayInformationN();
                 customer.withdraw(scanner);
             }
         }
 
     }
 
-    public void tranfers(Scanner scanner, String customerId) {
+    public void tranfers(Scanner scanner, String customerId) throws IOException {
         for (Customer customer : getCustomers()) {
             if ((customer.getCustomerId().equals(customerId))) {
-                searchCustomerByCCCD(customerId);
-                withdraw(scanner, customerId);
+                customer.displayInformationN();
+                customer.transfers(scanner);
             }
         }
+        CustomerDao.save(getCustomers());
     }
 
     public boolean isAccountExisted(List<Account> accountsList, Account newAccount) {

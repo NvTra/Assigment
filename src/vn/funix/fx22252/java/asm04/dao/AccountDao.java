@@ -22,11 +22,10 @@ public class AccountDao {
         List<Account> accounts = list();
         boolean hasExits = accounts.stream().anyMatch(account -> account.getAccountNumber().equals(editAccount.getAccountNumber()));
         List<Account> updateAccounts;
+        updateAccounts = new ArrayList<>();
         if (!hasExits) {
-            updateAccounts = new ArrayList<>();
             updateAccounts.add(editAccount);
         } else {
-            updateAccounts = new ArrayList<>();
             for (Account account : accounts) {
                 if (account.getAccountNumber().equals(editAccount.getAccountNumber())) {
                     updateAccounts.add(editAccount);

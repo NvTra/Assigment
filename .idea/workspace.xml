@@ -53,6 +53,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -76,7 +77,7 @@
       <recent name="vn.funix.fx22252.java.asm02.models" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DigitalBankTest.showCustomers">
+  <component name="RunManager" selected="Application.Asm04">
     <configuration name="Asm04" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="vn.funix.fx22252.java.asm04.Asm04" />
       <module name="PRO192x_ASM_tranvfx22252" />
@@ -156,8 +157,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DigitalBankTest.showCustomers" />
         <item itemvalue="Application.Asm04" />
+        <item itemvalue="JUnit.DigitalBankTest.showCustomers" />
         <item itemvalue="JUnit.DigitalBankTest.testlinhtinh" />
         <item itemvalue="JUnit.DigitalBankTest.addAccount" />
         <item itemvalue="JUnit.DigitalBankTest.addCustomers" />
@@ -214,7 +215,11 @@
       <workItem from="1686272715036" duration="5738000" />
       <workItem from="1686279431663" duration="19123000" />
       <workItem from="1686311355627" duration="42000" />
-      <workItem from="1686311851780" duration="710000" />
+      <workItem from="1686311851780" duration="4529000" />
+      <workItem from="1686321598347" duration="244000" />
+      <workItem from="1686359112245" duration="3597000" />
+      <workItem from="1686365840485" duration="2031000" />
+      <workItem from="1686377671690" duration="10806000" />
     </task>
     <servers />
   </component>
@@ -226,13 +231,14 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/Asm04.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="2" />
+          <line>46</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="vn.funix.fx22252.java.asm02.models.Customer" memberName="accounts" />
         <PinnedItemInfo parentTag="vn.funix.fx22252.java.asm03.models.DigitalBank" memberName="id" />
       </pinned-members>
     </pin-to-top-manager>
@@ -243,6 +249,8 @@
       <configuration name="Application">
         <watch expression="AccountDao.list()" language="JAVA" />
         <watch expression="accounts" language="JAVA" />
+        <watch expression="getTotalAccountBalance()" language="JAVA" />
+        <watch expression="newBalance" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
