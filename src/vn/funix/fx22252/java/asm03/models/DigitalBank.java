@@ -3,7 +3,6 @@ package vn.funix.fx22252.java.asm03.models;
 import vn.funix.fx22252.java.asm02.models.Account;
 import vn.funix.fx22252.java.asm02.models.Bank;
 import vn.funix.fx22252.java.asm02.models.Customer;
-import vn.funix.fx22252.java.asm04.dao.AccountDao;
 import vn.funix.fx22252.java.asm04.dao.CustomerDao;
 
 
@@ -130,7 +129,7 @@ public class DigitalBank extends Bank {
         for (Customer customer : CustomerDao.list()) {
             if (customer.getCustomerId().equals(customerId)) {
                 customer.input(scanner);
-                CustomerDao.save(CustomerDao.list());
+                CustomerDao.save(getCustomers());
                 System.out.println("Tao tai khoan thanh cong");
             }
         }

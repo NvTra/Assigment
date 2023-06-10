@@ -4,6 +4,7 @@ import vn.funix.fx22252.java.asm03.models.LoanAccount;
 import vn.funix.fx22252.java.asm03.models.SavingsAccount;
 import vn.funix.fx22252.java.asm03.models.Transaction;
 import vn.funix.fx22252.java.asm04.dao.AccountDao;
+import vn.funix.fx22252.java.asm04.dao.CustomerDao;
 
 
 import java.io.IOException;
@@ -108,6 +109,7 @@ public class Customer extends User implements Serializable {
             }
         }
     }
+
     public boolean isAccountExisted(List<Account> accountsList, Account newAccount) {
         for (Account account : accountsList) {
             if (account.getAccountNumber().equals(newAccount.getAccountNumber())) {
@@ -116,14 +118,12 @@ public class Customer extends User implements Serializable {
         }
         return false;
     }
+
     public boolean isValidAcounttNumber(String accountNumber) {
         Pattern pt = Pattern.compile("^\\d{6}$");
         if (!pt.matcher(accountNumber).find()) {
             return false;
-        } else if (isAccountExisted(AccountDao.list(),new Account(accountNumber,0))) {
-            return false;
-        }
-        return true;
+        } else return !isAccountExisted(AccountDao.list(), new Account(accountNumber, 0));
     }
 
     //Ass04
@@ -156,10 +156,10 @@ public class Customer extends User implements Serializable {
         return null;
     }
 
-    public Account input(Scanner scanner) throws IOException {
+    public void input(Scanner scanner) throws IOException {
         String accountNumber;
         do {
-            System.out.println("Nhap so tai khoan gom 6 chu so: ");
+            System.out.print("Nhap so tai khoan gom 6 chu so: ");
             accountNumber = scanner.nextLine();
         } while (!isValidAcounttNumber(accountNumber));
         double balance = 0;
@@ -174,10 +174,8 @@ public class Customer extends User implements Serializable {
         } while (balance < 50000);
         addAccount(new SavingsAccount(getCustomerId(), accountNumber, balance));
         AccountDao.save(getAccounts());
-        Transaction transaction = new Transaction(accountNumber, balance, new Date(), true, Transaction.TransactionType.DEPOSIT);
         Account account = new Account(accountNumber, balance);
-        account.createTransaction(balance, new Date(), true, Transaction.TransactionType.DEPOSIT);
-        return account;
+        account.createTransaction(0, new Date(), true, Transaction.TransactionType.DEPOSIT);
     }
 
     public void withdraw(Scanner scanner) {

@@ -219,7 +219,7 @@
       <workItem from="1686321598347" duration="244000" />
       <workItem from="1686359112245" duration="3597000" />
       <workItem from="1686365840485" duration="2031000" />
-      <workItem from="1686377671690" duration="10806000" />
+      <workItem from="1686377671690" duration="14754000" />
     </task>
     <servers />
   </component>
@@ -230,15 +230,19 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/Asm04.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/src/vn/funix/fx22252/java/asm02/models/Customer.java</url>
+          <line>174</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/vn/funix/fx22252/java/asm02/models/Customer.java</url>
+          <line>175</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="vn.funix.fx22252.java.asm02.models.Customer" memberName="accounts" />
         <PinnedItemInfo parentTag="vn.funix.fx22252.java.asm03.models.DigitalBank" memberName="id" />
       </pinned-members>
     </pin-to-top-manager>
@@ -249,8 +253,9 @@
       <configuration name="Application">
         <watch expression="AccountDao.list()" language="JAVA" />
         <watch expression="accounts" language="JAVA" />
+        <watch expression="getAccounts()" language="JAVA" />
         <watch expression="getTotalAccountBalance()" language="JAVA" />
-        <watch expression="newBalance" language="JAVA" />
+        <watch expression="getCustomerId()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

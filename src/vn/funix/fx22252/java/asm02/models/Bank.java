@@ -34,7 +34,6 @@ public class Bank {
 
     //them khach hang
     public void addCustomer(Customer newCustomer) {
-
         for (Customer customer : customers) {
             if (customer.getCustomerId().equals(newCustomer.getCustomerId())) {
                 System.out.println("Khach hang da ton tai");

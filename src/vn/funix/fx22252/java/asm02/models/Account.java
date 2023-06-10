@@ -136,7 +136,6 @@ public class Account implements Serializable {
         }
         Transaction transaction = new Transaction(getAccountNumber(), amount, new Date(), true, type);
         addTransaction(transaction);
-        System.out.println("Giao dịch thanh cong");
     }
 
 
