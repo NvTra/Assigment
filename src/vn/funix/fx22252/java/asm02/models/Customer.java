@@ -123,12 +123,12 @@ public class Customer extends User implements Serializable {
         Pattern pt = Pattern.compile("^\\d{6}$");
         if (!pt.matcher(accountNumber).find()) {
             return false;
-        } else return !isAccountExisted(AccountDao.list(), new Account(accountNumber, 0));
+        } else return !isAccountExisted(getAccounts(), new Account(accountNumber, 0));
     }
 
     //Ass04
     public List<Account> getAccountsN() {
-        List<Account> accountList = AccountDao.list();
+        List<Account> accountList = getAccounts();
         return accountList
                 .stream()
                 .filter(account -> account.getCustomerId().equals(this.getCustomerId()))

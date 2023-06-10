@@ -219,7 +219,7 @@
       <workItem from="1686321598347" duration="244000" />
       <workItem from="1686359112245" duration="3597000" />
       <workItem from="1686365840485" duration="2031000" />
-      <workItem from="1686377671690" duration="14754000" />
+      <workItem from="1686377671690" duration="17634000" />
     </task>
     <servers />
   </component>
@@ -227,20 +227,6 @@
     <option name="version" value="3" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/vn/funix/fx22252/java/asm02/models/Customer.java</url>
-          <line>174</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/vn/funix/fx22252/java/asm02/models/Customer.java</url>
-          <line>175</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="vn.funix.fx22252.java.asm03.models.DigitalBank" memberName="id" />
@@ -256,6 +242,9 @@
         <watch expression="getAccounts()" language="JAVA" />
         <watch expression="getTotalAccountBalance()" language="JAVA" />
         <watch expression="getCustomerId()" language="JAVA" />
+        <watch expression="this.getCustomerId()" language="JAVA" />
+        <watch expression="getAccountsN()" language="JAVA" />
+        <watch expression="accounts.get(0)" />
       </configuration>
     </watches-manager>
   </component>

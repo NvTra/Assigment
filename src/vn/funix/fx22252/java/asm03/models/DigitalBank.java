@@ -126,7 +126,7 @@ public class DigitalBank extends Bank {
 
 
     public void addSavingAccount(Scanner scanner, String customerId) throws IOException {
-        for (Customer customer : CustomerDao.list()) {
+        for (Customer customer : getCustomers()) {
             if (customer.getCustomerId().equals(customerId)) {
                 customer.input(scanner);
                 CustomerDao.save(getCustomers());
