@@ -237,29 +237,31 @@ public class Customer extends User implements Serializable {
         scanner.nextLine();
         String confirm;
         do {
-            System.out.print("Xac nhan thuc hien chuyen: " + amount + " tu tai khoan [" + depositAccountNumber + "] den tai khoan [" + receiveNumber + "] (Y/N): ");
+            System.out.print("Xac nhan thuc hien chuyen: " +String.format("%.1f đ",amount)  + " tu tai khoan [" + depositAccountNumber + "] den tai khoan [" + receiveNumber + "] (Y/N): ");
             confirm = scanner.nextLine();
             if (confirm.equalsIgnoreCase("n")) {
                 break;
             }
-        }
-        while (!confirm.equalsIgnoreCase("y"));
-
-        for (Customer customer : CustomerDao.list()) {
-            for (Account account : customer.getAccounts()) {
-                if (account.getAccountNumber().equals(depositAccountNumber)) {
-                    SavingsAccount acc = (SavingsAccount) getAccountsByAccountNumber(depositAccountNumber);
-                    SavingsAccount recceiveAccount = (SavingsAccount) getAccountbyAccountNumberN(receiveNumber);
-                    acc.transfer(recceiveAccount, amount);//loi
-                    AccountDao.update2(acc);
-                    AccountDao.update2(recceiveAccount);
-                    recceiveAccount.addTransaction(new Transaction(receiveNumber, amount, new Date(), true, Transaction.TransactionType.DEPOSIT));
+            for (Customer customer : CustomerDao.list()) {
+                for (Account account : customer.getAccounts()) {
+                    if (account.getAccountNumber().equals(depositAccountNumber)) {
+                        SavingsAccount acc = (SavingsAccount) getAccountsByAccountNumber(depositAccountNumber);
+                        SavingsAccount recceiveAccount = (SavingsAccount) getAccountbyAccountNumberN(receiveNumber);
+                        acc.transfer(recceiveAccount, amount);
+                        AccountDao.update2(acc);
+                        AccountDao.update2(recceiveAccount);
+                        recceiveAccount.addTransaction(new Transaction(receiveNumber, amount, new Date(), true, Transaction.TransactionType.DEPOSIT));
+                    }
                 }
             }
+        }
+        while (!confirm.equalsIgnoreCase("n"));
+
+
 //            AccountDao.save(getAccounts());
 //            AccountDao.save(DigitalBank.getCustomerbyAccountNumber(receiveNumber).getAccounts());
 
-        }
+
     }
 
     public void displayTransactionInformation() {

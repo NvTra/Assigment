@@ -55,6 +55,7 @@ public class DigitalBankTest {
     @Test
     public void goicustomer(){
         System.out.println(activeBank.getCustomerbyAccountNumber("123564"));
+        System.out.println(String.format("%.1f đ",100000.00));
     }
 
 }

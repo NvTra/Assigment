@@ -7,18 +7,9 @@
     <list default="true" id="4e0eb08b-08ef-4db4-89b7-14449731455c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm02/models/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm02/models/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm03/models/DigitalBank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm03/models/DigitalBank.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm03/models/DigitalBankTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm03/models/DigitalBankTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/Asm04.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/Asm04.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/service/BinaryFileServiceTest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm02/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm02/models/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm03/models/DigitalBank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm03/models/DigitalBank.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm03/models/DigitalBankTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm03/models/DigitalBankTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/Asm04.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/Asm04.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/service/BinaryFileServiceTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/accounts.dat" beforeDir="false" afterPath="$PROJECT_DIR$/store/accounts.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/customers.dat" beforeDir="false" afterPath="$PROJECT_DIR$/store/customers.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/transactions.dat" beforeDir="false" afterPath="$PROJECT_DIR$/store/transactions.dat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +86,7 @@
       <recent name="vn.funix.fx22252.java.asm02.models" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Asm04">
+  <component name="RunManager" selected="JUnit.DigitalBankTest.goicustomer">
     <configuration name="Asm04" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="vn.funix.fx22252.java.asm04.Asm04" />
       <module name="PRO192x_ASM_tranvfx22252" />
@@ -174,8 +165,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Asm04" />
         <item itemvalue="JUnit.DigitalBankTest.goicustomer" />
+        <item itemvalue="Application.Asm04" />
         <item itemvalue="JUnit.TransactionTest.testToString" />
         <item itemvalue="JUnit.SavingsAccountTest.withdraw" />
         <item itemvalue="JUnit.DigitalBankTest" />
@@ -238,7 +229,7 @@
       <workItem from="1686365840485" duration="2031000" />
       <workItem from="1686377671690" duration="18627000" />
       <workItem from="1686411638539" duration="2328000" />
-      <workItem from="1686445522922" duration="25003000" />
+      <workItem from="1686445522922" duration="27825000" />
     </task>
     <servers />
   </component>
@@ -257,24 +248,6 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/vn/funix/fx22252/java/asm03/models/DigitalBank.java</url>
-          <line>154</line>
-          <properties class="vn.funix.fx22252.java.asm03.models.DigitalBank" method="withdraw">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/vn/funix/fx22252/java/asm02/models/Customer.java</url>
-          <line>250</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="vn.funix.fx22252.java.asm03.models.DigitalBank" memberName="id" />
@@ -285,13 +258,7 @@
         <watch expression="objects" language="JAVA" />
       </configuration>
       <configuration name="Application">
-        <watch expression="getCustomerId()" language="JAVA" />
-        <watch expression="this.getCustomerId()" language="JAVA" />
-        <watch expression="account" language="JAVA" />
-        <watch expression="recceiveAccount" language="JAVA" />
-        <watch expression="getAccounts()" language="JAVA" />
-        <watch expression="transactions" language="JAVA" />
-        <watch expression="getAccounts()" language="JAVA" />
+        <watch expression="getCustomers()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
