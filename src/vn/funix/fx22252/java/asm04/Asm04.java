@@ -5,6 +5,7 @@ import vn.funix.fx22252.java.asm02.models.Customer;
 import vn.funix.fx22252.java.asm03.models.DigitalBank;
 import vn.funix.fx22252.java.asm04.dao.AccountDao;
 import vn.funix.fx22252.java.asm04.dao.CustomerDao;
+import vn.funix.fx22252.java.asm04.exception.CustomerIdNotValidException;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -15,6 +16,7 @@ public class Asm04 {
     private final static DigitalBank activeBank = new DigitalBank();
 
     public static void main(String[] args) {
+        activeBank.startUp();
         programSelection();
     }
 
@@ -78,21 +80,22 @@ public class Asm04 {
         activeBank.addCustomers(path);
     }
 
-    private static void addATMAccount() throws IOException {
-        String maKH;
+    private static void addATMAccount() throws IOException, CustomerIdNotValidException {
+        String customerId = null;
         sc.nextLine();
-        while (true) {
-            System.out.println("Nhap ma so cua khach hang: ");
-            maKH = sc.nextLine();
-            if (!activeBank.validateCustomerId(maKH)) {
-                System.out.println("Khong tim thay khach hang " + maKH + ", tac vu khong thanh cong");
-            } else if (!activeBank.isCustomerExisted(CustomerDao.list(), new Customer(null, maKH))) {
-                System.out.println("Khong tim thay khach hang " + maKH + ", tac vu khong thanh cong");
-            } else {
-                break;
-            }
-        }
-        activeBank.addSavingAccount(new Scanner(System.in), maKH);
+        activeBank.checkCustomerId(new Scanner(System.in), customerId);
+//        while (true) {
+//            System.out.println("Nhap ma so cua khach hang: ");
+//            customerId = sc.nextLine();
+//            if (!activeBank.validateCustomerId(customerId)) {
+//                System.out.println("Khong tim thay khach hang " + customerId + ", tac vu khong thanh cong");
+//            } else if (!activeBank.isCustomerExisted(CustomerDao.list(), new Customer(null, customerId))) {
+//                System.out.println("Khong tim thay khach hang " + customerId + ", tac vu khong thanh cong");
+//            } else {
+//                break;
+//            }
+//        }
+        activeBank.addSavingAccount(new Scanner(System.in), customerId);
 
 
     }

@@ -6,16 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="4e0eb08b-08ef-4db4-89b7-14449731455c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm02/models/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm02/models/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm02/models/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm02/models/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm03/models/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm03/models/Transaction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm02/models/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm02/models/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm02/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm02/models/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm03/models/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm03/models/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/dao/AccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/dao/AccountDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/accounts.dat" beforeDir="false" afterPath="$PROJECT_DIR$/store/accounts.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/customers.dat" beforeDir="false" afterPath="$PROJECT_DIR$/store/customers.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/transactions.dat" beforeDir="false" afterPath="$PROJECT_DIR$/store/transactions.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm03/models/DigitalBank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm03/models/DigitalBank.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/Asm04.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/Asm04.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm02/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm02/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm03/models/DigitalBank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm03/models/DigitalBank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/Asm04.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/Asm04.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +230,7 @@
       <workItem from="1686365840485" duration="2031000" />
       <workItem from="1686377671690" duration="18627000" />
       <workItem from="1686411638539" duration="2328000" />
-      <workItem from="1686445522922" duration="10671000" />
+      <workItem from="1686445522922" duration="13230000" />
     </task>
     <servers />
   </component>
@@ -247,7 +242,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/vn/funix/fx22252/java/asm03/models/DigitalBank.java</url>
-          <line>138</line>
+          <line>139</line>
           <properties class="vn.funix.fx22252.java.asm03.models.DigitalBank" method="withdraw">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

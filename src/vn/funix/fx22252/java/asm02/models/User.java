@@ -1,5 +1,7 @@
 package vn.funix.fx22252.java.asm02.models;
 
+import vn.funix.fx22252.java.asm04.exception.CustomerIdNotValidException;
+
 import java.io.Serializable;
 import java.util.regex.Pattern;
 
@@ -35,10 +37,11 @@ public class User implements Serializable {
 
     public void setCustomerId(String customerId) {
         try {
-            if (isValidCustomerId(customerId)) {
-                this.customerId = customerId;
+            if (!isValidCustomerId(customerId)) {
+                throw new CustomerIdNotValidException("So CCCD khong hop le");
             }
-        } catch (Exception e) {
+            this.customerId = customerId;
+        } catch (CustomerIdNotValidException e) {
             System.out.println("So CCCD khong hop le");
         }
     }

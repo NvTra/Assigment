@@ -4,6 +4,7 @@ import vn.funix.fx22252.java.asm02.models.Account;
 import vn.funix.fx22252.java.asm02.models.Bank;
 import vn.funix.fx22252.java.asm02.models.Customer;
 import vn.funix.fx22252.java.asm04.dao.CustomerDao;
+import vn.funix.fx22252.java.asm04.exception.CustomerIdNotValidException;
 
 
 import java.io.*;
@@ -101,10 +102,6 @@ public class DigitalBank extends Bank {
             }
             if (CustomerDao.list().isEmpty()) {
                 CustomerDao.save(getCustomers());
-            } else {
-                for (Customer object : CustomerDao.list()) {
-                    getCustomers().add(object);
-                }
             }
         } catch (FileNotFoundException e) {
             System.out.println("File khong ton tai");
@@ -112,7 +109,11 @@ public class DigitalBank extends Bank {
             e.printStackTrace();
         }
     }
-
+    public void startUp(){
+        for (Customer object : CustomerDao.list()) {
+            getCustomers().add(object);
+        }
+    }
     public void showCustomers() {
         List<Customer> customersList = CustomerDao.list();
         if (customersList.isEmpty()) {
@@ -181,5 +182,24 @@ public class DigitalBank extends Bank {
             }
         }
         return null;
+    }
+
+    public void checkCustomerId(Scanner scanner, String customerId) {
+        try {
+            while (true) {
+                System.out.println("Nhap ma so cua khach hang: ");
+                customerId = scanner.nextLine();
+                if (validateCustomerId(customerId)) {
+                    throw new CustomerIdNotValidException("Ma so ban nhap khong hop le");
+                } else if (isCustomerExisted(customerId)) {
+                    throw new CustomerIdNotValidException("Khong tim thay khach hang " + customerId + ", tac vu khong thanh cong");
+                } else {
+                    break;
+                }
+            }
+        } catch (CustomerIdNotValidException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }
