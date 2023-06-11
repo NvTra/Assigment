@@ -81,20 +81,20 @@ public class Asm04 {
     }
 
     private static void addATMAccount() throws IOException, CustomerIdNotValidException {
-        String customerId = null;
+        String customerId;
         sc.nextLine();
-        activeBank.checkCustomerId(new Scanner(System.in), customerId);
-//        while (true) {
-//            System.out.println("Nhap ma so cua khach hang: ");
-//            customerId = sc.nextLine();
-//            if (!activeBank.validateCustomerId(customerId)) {
-//                System.out.println("Khong tim thay khach hang " + customerId + ", tac vu khong thanh cong");
-//            } else if (!activeBank.isCustomerExisted(CustomerDao.list(), new Customer(null, customerId))) {
-//                System.out.println("Khong tim thay khach hang " + customerId + ", tac vu khong thanh cong");
-//            } else {
-//                break;
-//            }
-//        }
+
+        while (true) {
+            System.out.println("Nhap ma so cua khach hang: ");
+            customerId = sc.nextLine();
+            if (!activeBank.validateCustomerId(customerId)) {
+                System.out.println("Khong tim thay khach hang " + customerId + ", tac vu khong thanh cong");
+            } else if (!activeBank.isCustomerExisted(CustomerDao.list(), new Customer(null, customerId))) {
+                System.out.println("Khong tim thay khach hang " + customerId + ", tac vu khong thanh cong");
+            } else {
+                break;
+            }
+        }
         activeBank.addSavingAccount(new Scanner(System.in), customerId);
 
 

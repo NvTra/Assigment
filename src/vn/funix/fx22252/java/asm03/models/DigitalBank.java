@@ -4,7 +4,6 @@ import vn.funix.fx22252.java.asm02.models.Account;
 import vn.funix.fx22252.java.asm02.models.Bank;
 import vn.funix.fx22252.java.asm02.models.Customer;
 import vn.funix.fx22252.java.asm04.dao.CustomerDao;
-import vn.funix.fx22252.java.asm04.exception.CustomerIdNotValidException;
 
 
 import java.io.*;
@@ -55,6 +54,17 @@ public class DigitalBank extends Bank {
             return false;
         }
         return !super.isValidAccount(accountNumber);
+    }
+
+    public static boolean isAccoutexist(String accountNumber) {
+        for (Customer customer : CustomerDao.list()) {
+            for (Account account : customer.getAccounts()) {
+                if (account.getAccountNumber().equals(accountNumber)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public boolean withdraw(String customerId, String accountNumber, double amount) throws IOException {
@@ -109,11 +119,15 @@ public class DigitalBank extends Bank {
             e.printStackTrace();
         }
     }
-    public void startUp(){
-        for (Customer object : CustomerDao.list()) {
-            getCustomers().add(object);
+
+    public void startUp() {
+        if (!CustomerDao.list().isEmpty()) {
+            for (Customer object : CustomerDao.list()) {
+                getCustomers().add(object);
+            }
         }
     }
+
     public void showCustomers() {
         List<Customer> customersList = CustomerDao.list();
         if (customersList.isEmpty()) {
@@ -185,21 +199,16 @@ public class DigitalBank extends Bank {
     }
 
     public void checkCustomerId(Scanner scanner, String customerId) {
-        try {
-            while (true) {
-                System.out.println("Nhap ma so cua khach hang: ");
-                customerId = scanner.nextLine();
-                if (validateCustomerId(customerId)) {
-                    throw new CustomerIdNotValidException("Ma so ban nhap khong hop le");
-                } else if (isCustomerExisted(customerId)) {
-                    throw new CustomerIdNotValidException("Khong tim thay khach hang " + customerId + ", tac vu khong thanh cong");
-                } else {
-                    break;
-                }
+        while (true) {
+            System.out.println("Nhap ma so cua khach hang: ");
+            customerId = scanner.nextLine();
+            if (!validateCustomerId(customerId)) {
+                System.out.println("Ma so khong dung");
+            } else if (!isCustomerExisted(customerId)) {
+                System.out.println("Khong tim thay khach hang " + customerId + ", tac vu khong thanh cong");
+            } else {
+                break;
             }
-        } catch (CustomerIdNotValidException e) {
-            System.out.println(e.getMessage());
         }
-
     }
 }

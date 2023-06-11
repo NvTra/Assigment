@@ -1,5 +1,6 @@
 package vn.funix.fx22252.java.asm02.models;
 
+import vn.funix.fx22252.java.asm03.models.DigitalBank;
 import vn.funix.fx22252.java.asm03.models.LoanAccount;
 import vn.funix.fx22252.java.asm03.models.SavingsAccount;
 import vn.funix.fx22252.java.asm03.models.Transaction;
@@ -160,7 +161,7 @@ public class Customer extends User implements Serializable {
         do {
             System.out.print("Nhap so tai khoan gom 6 chu so: ");
             accountNumber = scanner.nextLine();
-        } while (!isValidAcounttNumber(accountNumber));
+        } while (!DigitalBank.isAccoutexist(accountNumber));
         double balance = 0;
         do {
             try {
