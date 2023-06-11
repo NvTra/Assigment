@@ -5,6 +5,7 @@ import vn.funix.fx22252.java.asm03.models.LoanAccount;
 import vn.funix.fx22252.java.asm03.models.SavingsAccount;
 import vn.funix.fx22252.java.asm03.models.Transaction;
 import vn.funix.fx22252.java.asm04.dao.AccountDao;
+import vn.funix.fx22252.java.asm04.dao.CustomerDao;
 
 
 import java.io.IOException;
@@ -102,6 +103,18 @@ public class Customer extends User implements Serializable {
         return null;
     }
 
+    public static Account getAccountbyAccountNumberN(String accountNumber) {
+        for (Customer customer : CustomerDao.list()) {
+            for (Account account : customer.getAccounts()) {
+                if (account.getAccountNumber().equals(accountNumber)) {
+                    return account;
+                }
+
+            }
+        }
+        return null;
+    }
+
     public void displayAllTransaction() {
         if (getAccounts().size() > 0) {
             for (Account account : getAccounts()) {
@@ -160,12 +173,11 @@ public class Customer extends User implements Serializable {
         String accountNumber;
         do {
             System.out.print("Nhap so tai khoan gom 6 chu so: ");
-            accountNumber = scanner.nextLine();
-        } while (!DigitalBank.isAccoutexist(accountNumber));
+            accountNumber = String.valueOf(Integer.parseInt(scanner.nextLine()));
+        } while (!isValidAcounttNumber(accountNumber) || DigitalBank.isAccoutexist(accountNumber));
         double balance = 0;
         do {
             try {
-
                 System.out.print("Nhap so du tai khoan >= 50000đ: ");
                 balance = scanner.nextDouble();
             } catch (Exception e) {
@@ -202,17 +214,17 @@ public class Customer extends User implements Serializable {
     }
 
     public void transfers(Scanner scanner) throws IOException {
-        String accNumber;
+        String depositAccountNumber;
         do {
             System.out.print("Nhap so tai khoan:");
-            accNumber = scanner.nextLine();
-        } while (!isAccountExisted(accNumber));
+            depositAccountNumber = scanner.nextLine();
+        } while (!isAccountExisted(depositAccountNumber));
         String receiveNumber;
         do {
             System.out.print("Nhap so tai khoan nhan:");
             receiveNumber = scanner.nextLine();
-        } while (!isAccountExisted(receiveNumber));
-        System.out.println("Gui tien den tai khoan: " + receiveNumber + "   |  " + getAccountsByAccountNumber(receiveNumber).getCustomer().getName());
+        } while (!DigitalBank.isAccoutexist(receiveNumber));
+        System.out.println("Gui tien den tai khoan: " + receiveNumber + "   |  " + DigitalBank.getCustomerbyAccountNumber(receiveNumber).getName());
         System.out.print("Nhap so tien chuyen: ");
         double amount = 0;
         while (amount < 50000) {
@@ -225,25 +237,29 @@ public class Customer extends User implements Serializable {
         scanner.nextLine();
         String confirm;
         do {
-            System.out.print("Xac nhan thuc hien chuyen: " + amount + " tu tai khoan [" + accNumber + "] den tai khoan [" + receiveNumber + "] (Y/N): ");
+            System.out.print("Xac nhan thuc hien chuyen: " + amount + " tu tai khoan [" + depositAccountNumber + "] den tai khoan [" + receiveNumber + "] (Y/N): ");
             confirm = scanner.nextLine();
             if (confirm.equalsIgnoreCase("n")) {
                 break;
             }
         }
         while (!confirm.equalsIgnoreCase("y"));
-        for (Account account : getAccounts()) {
-            if (account.getAccountNumber().equals(accNumber)) {
-                SavingsAccount acc = (SavingsAccount) getAccountsByAccountNumber(accNumber);
-                SavingsAccount recceiveAccount = (SavingsAccount) getAccountsByAccountNumber(receiveNumber);
-                acc.transfer(recceiveAccount, amount);
-                AccountDao.update2(acc);
-                AccountDao.update2(recceiveAccount);
-                recceiveAccount.addTransaction(new Transaction(receiveNumber, amount, new Date(), true, Transaction.TransactionType.DEPOSIT));
-            }
-        }
-        AccountDao.save(getAccounts());
 
+        for (Customer customer : CustomerDao.list()) {
+            for (Account account : customer.getAccounts()) {
+                if (account.getAccountNumber().equals(depositAccountNumber)) {
+                    SavingsAccount acc = (SavingsAccount) getAccountsByAccountNumber(depositAccountNumber);
+                    SavingsAccount recceiveAccount = (SavingsAccount) getAccountbyAccountNumberN(receiveNumber);
+                    acc.transfer(recceiveAccount, amount);//loi
+                    AccountDao.update2(acc);
+                    AccountDao.update2(recceiveAccount);
+                    recceiveAccount.addTransaction(new Transaction(receiveNumber, amount, new Date(), true, Transaction.TransactionType.DEPOSIT));
+                }
+            }
+//            AccountDao.save(getAccounts());
+//            AccountDao.save(DigitalBank.getCustomerbyAccountNumber(receiveNumber).getAccounts());
+
+        }
     }
 
     public void displayTransactionInformation() {

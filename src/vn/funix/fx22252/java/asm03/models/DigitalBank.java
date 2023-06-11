@@ -56,16 +56,7 @@ public class DigitalBank extends Bank {
         return !super.isValidAccount(accountNumber);
     }
 
-    public static boolean isAccoutexist(String accountNumber) {
-        for (Customer customer : CustomerDao.list()) {
-            for (Account account : customer.getAccounts()) {
-                if (account.getAccountNumber().equals(accountNumber)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
+
 
     public boolean withdraw(String customerId, String accountNumber, double amount) throws IOException {
         if (getCustomerById(customerId) == null) {
@@ -89,6 +80,16 @@ public class DigitalBank extends Bank {
     }
 
     //ASS 04
+    public static boolean isAccoutexist(String accountNumber) {
+        for (Customer customer : CustomerDao.list()) {
+            for (Account account : customer.getAccounts()) {
+                if (account.getAccountNumber().equals(accountNumber)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     public void addCustomers(String fileName) {
         try {
             Scanner sc = new Scanner(new BufferedReader(new FileReader(fileName)));
@@ -169,6 +170,7 @@ public class DigitalBank extends Bank {
             }
         }
         CustomerDao.save(getCustomers());
+
     }
 
     public boolean isAccountExisted(List<Account> accountsList, Account newAccount) {
@@ -210,5 +212,17 @@ public class DigitalBank extends Bank {
                 break;
             }
         }
+    }
+    public static Customer getCustomerbyAccountNumber(String accountNumber) {
+        for (Customer customer : CustomerDao.list()) {
+            for (Account account : customer.getAccounts()) {
+                if (account.getAccountNumber().equals(accountNumber)) {
+                    account.getCustomer();
+                    return customer;
+                }
+
+            }
+        }
+        return null;
     }
 }

@@ -5,7 +5,6 @@ import vn.funix.fx22252.java.asm02.models.Customer;
 import vn.funix.fx22252.java.asm03.models.DigitalBank;
 import vn.funix.fx22252.java.asm04.dao.AccountDao;
 import vn.funix.fx22252.java.asm04.dao.CustomerDao;
-import vn.funix.fx22252.java.asm04.exception.CustomerIdNotValidException;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -80,7 +79,7 @@ public class Asm04 {
         activeBank.addCustomers(path);
     }
 
-    private static void addATMAccount() throws IOException, CustomerIdNotValidException {
+    private static void addATMAccount() throws IOException {
         String customerId;
         sc.nextLine();
 

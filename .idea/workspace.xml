@@ -8,10 +8,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm02/models/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm02/models/Customer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm03/models/DigitalBank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm03/models/DigitalBank.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm03/models/DigitalBankTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm03/models/DigitalBankTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/Asm04.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/Asm04.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/service/BinaryFileServiceTest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm02/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm02/models/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm03/models/DigitalBank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm03/models/DigitalBank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm03/models/DigitalBankTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm03/models/DigitalBankTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/Asm04.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/Asm04.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/service/BinaryFileServiceTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/store/accounts.dat" beforeDir="false" afterPath="$PROJECT_DIR$/store/accounts.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/customers.dat" beforeDir="false" afterPath="$PROJECT_DIR$/store/customers.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/transactions.dat" beforeDir="false" afterPath="$PROJECT_DIR$/store/transactions.dat" afterDir="false" />
@@ -120,7 +124,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DigitalBankTest.testlinhtinh" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DigitalBankTest.goicustomer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PRO192x_ASM_tranvfx22252" />
       <extension name="coverage">
         <pattern>
@@ -130,7 +134,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="vn.funix.fx22252.java.asm03.models" />
       <option name="MAIN_CLASS_NAME" value="vn.funix.fx22252.java.asm03.models.DigitalBankTest" />
-      <option name="METHOD_NAME" value="testlinhtinh" />
+      <option name="METHOD_NAME" value="goicustomer" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -171,10 +175,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Asm04" />
+        <item itemvalue="JUnit.DigitalBankTest.goicustomer" />
         <item itemvalue="JUnit.TransactionTest.testToString" />
         <item itemvalue="JUnit.SavingsAccountTest.withdraw" />
         <item itemvalue="JUnit.DigitalBankTest" />
-        <item itemvalue="JUnit.DigitalBankTest.testlinhtinh" />
       </list>
     </recent_temporary>
   </component>
@@ -234,33 +238,40 @@
       <workItem from="1686365840485" duration="2031000" />
       <workItem from="1686377671690" duration="18627000" />
       <workItem from="1686411638539" duration="2328000" />
-      <workItem from="1686445522922" duration="16579000" />
+      <workItem from="1686445522922" duration="25003000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/vn/funix/fx22252/java/asm03/models/DigitalBank.java</url>
-          <line>153</line>
+          <line>154</line>
           <properties class="vn.funix.fx22252.java.asm03.models.DigitalBank" method="withdraw">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/vn/funix/fx22252/java/asm02/models/Customer.java</url>
-          <line>180</line>
-          <properties class="vn.funix.fx22252.java.asm02.models.Customer" method="withdraw">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="9" />
+          <line>250</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -276,7 +287,11 @@
       <configuration name="Application">
         <watch expression="getCustomerId()" language="JAVA" />
         <watch expression="this.getCustomerId()" language="JAVA" />
+        <watch expression="account" language="JAVA" />
+        <watch expression="recceiveAccount" language="JAVA" />
+        <watch expression="getAccounts()" language="JAVA" />
         <watch expression="transactions" language="JAVA" />
+        <watch expression="getAccounts()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

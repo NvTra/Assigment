@@ -52,6 +52,9 @@ public class DigitalBankTest {
         activeBank.showCustomers();
         activeBank.withdraw("040095012040","123456",500000);
     }
-
+    @Test
+    public void goicustomer(){
+        System.out.println(activeBank.getCustomerbyAccountNumber("123564"));
+    }
 
 }
