@@ -84,7 +84,7 @@ public class Account implements Serializable {
     @Override
     public String toString() {
         DecimalFormat decimalFormat = new DecimalFormat("#,###đ");
-        return String.format("%10s  |%20s | %32s", accountNumber, getAccountType(), decimalFormat.format(getBalance()));
+        return String.format("%11s | %-32s | %32s", accountNumber, getAccountType(), decimalFormat.format(getBalance()));
     }
 
     //lich su giao dich

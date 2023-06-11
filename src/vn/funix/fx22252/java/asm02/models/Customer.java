@@ -137,11 +137,11 @@ public class Customer extends User implements Serializable {
     public void displayInformationN() {
         DecimalFormat df = new DecimalFormat("#,###đ");
         //hien thi thong tin TK
-        System.out.printf("%-14s|%20s |%8s | %22s\n", getCustomerId(), getName(), (isPremium() ? "Premium" : "Normal"), df.format(getTotalAccountBalance()));
+        System.out.printf("%-13s| %-32s |%8s | %22s\n", getCustomerId(), getName(), (isPremium() ? "Premium" : "Normal"), df.format(getTotalAccountBalance()));
         List<Account> accounts = getAccountsN();
         if (accounts.size() > 0) {
             for (int j = 0; j < accounts.size(); j++) {
-                System.out.println((j + 1) + " " + accounts.get(j).toString());
+                System.out.println((j + 1) + accounts.get(j).toString());
             }
         }
     }
@@ -236,25 +236,27 @@ public class Customer extends User implements Serializable {
                 SavingsAccount acc = (SavingsAccount) getAccountsByAccountNumber(accNumber);
                 SavingsAccount recceiveAccount = (SavingsAccount) getAccountsByAccountNumber(receiveNumber);
                 acc.transfer(recceiveAccount, amount);
+                AccountDao.update2(acc);
+                AccountDao.update2(recceiveAccount);
                 recceiveAccount.addTransaction(new Transaction(receiveNumber, amount, new Date(), true, Transaction.TransactionType.DEPOSIT));
             }
         }
         AccountDao.save(getAccounts());
+
     }
 
     public void displayTransactionInformation() {
         DecimalFormat df = new DecimalFormat("#,###đ");
         //hien thi thong tin khach hang
-        System.out.printf("%-16s|%20s |%8s | %22s\n", getCustomerId(), getName(), (isPremium() ? "Premium" : "Normal"), df.format(getTotalAccountBalance()));
+        System.out.printf("%-13s| %-32s |%8s | %22s\n", getCustomerId(), getName(), (isPremium() ? "Premium" : "Normal"), df.format(getTotalAccountBalance()));
         // hien thi tai khoan khach hang
         List<Account> accounts = getAccountsN();
         if (accounts.size() > 0) {
             for (int j = 0; j < accounts.size(); j++) {
-                System.out.println((j + 1) + "   " + accounts.get(j).toString());
+                System.out.println((j + 1) + accounts.get(j).toString());
             }
         }
-        for (Account account : getAccounts()) {
-            account.displayTransactionsList();
-        }
+        getAccounts().forEach(account -> account.displayTransactionsList());
+
     }
 }
