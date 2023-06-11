@@ -56,9 +56,10 @@ public class Transaction implements Serializable {
     @Override
     public String toString() {
         DecimalFormat df = new DecimalFormat("#,###đ");
-        String format = String.format("[GD] %8s | %12 |%20s |%23s", getAccoundNumber(), type, df.format(getAmount()), getTime());
+        String format = String.format("[GD] %8s | %12s |%20s |%23s", getAccoundNumber(), type, df.format(getAmount()), getTime());
         return format;
     }
+
 
     public enum TransactionType {
         DEPOSIT, WITHDRAW, TRANFERS

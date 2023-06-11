@@ -6,6 +6,7 @@ import vn.funix.fx22252.java.asm02.models.Account;
 import vn.funix.fx22252.java.asm02.models.Customer;
 import vn.funix.fx22252.java.asm03.models.*;
 
+import java.io.IOException;
 import java.util.Date;
 
 import static org.junit.Assert.*;
@@ -54,7 +55,7 @@ public class DigitalBankTest {
     }
 
     @Test
-    public void withdraw() {
+    public void withdraw() throws IOException {
         assertFalse(activeBank.withdraw("040095012060", "123568", 500000));
         assertTrue(activeBank.withdraw(CUSTOMER_ID, "222222", 200000));
         assertTrue(activeBank.withdraw(CUSTOMER_ID, "111111", 200000));
@@ -62,7 +63,7 @@ public class DigitalBankTest {
     }
 
     @Test
-    public void display() {
+    public void display() throws IOException {
         activeBank.getCustomerById(CUSTOMER_ID).getAccountsByAccountNumber("222222").addTransaction(new Transaction("222222", 5000000, new Date(), true));
         assertTrue(activeBank.withdraw(CUSTOMER_ID, "111111", 2000000));
         activeBank.withdraw(CUSTOMER_ID, "222222", 200000);

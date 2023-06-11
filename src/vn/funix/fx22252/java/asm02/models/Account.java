@@ -1,35 +1,34 @@
 package vn.funix.fx22252.java.asm02.models;
 
 
+import vn.funix.fx22252.java.asm03.models.DigitalBank;
 import vn.funix.fx22252.java.asm03.models.Transaction;
+import vn.funix.fx22252.java.asm04.dao.TransactionDao;
 
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
 
 import static vn.funix.fx22252.java.asm03.models.Transaction.*;
 
 public class Account implements Serializable {
 
     //khai bao thuoc tinh
-    private long serialVersionUID = 2L;
+    private final long serialVersionUID = 2L;
     private String customerId;
     private String accountNumber;
     private double balance;
     public String accountType;
     private final List<Transaction> transactions = new ArrayList<>();
-    private final ArrayList<Transaction> accountTransactions = new ArrayList<>();
+
 
     //khoi tao constructor
     public Account() {
-        this.customerId = customerId;
-        this.accountNumber = accountNumber;
-        this.balance = balance;
-        this.accountType = null;
+
     }
 
     public Account(String customerId, String accountNumber, double balance) {
@@ -73,6 +72,10 @@ public class Account implements Serializable {
         return customerId;
     }
 
+    public Customer getCustomer() {
+        return DigitalBank.getCustomerById(customerId);
+    }
+
     //----------------end setter and getter -----------------
     public boolean isPremium() {
         return balance >= 10000000;
@@ -81,10 +84,12 @@ public class Account implements Serializable {
     @Override
     public String toString() {
         DecimalFormat decimalFormat = new DecimalFormat("#,###đ");
-        return String.format("%-10s|%20s | %32s", accountNumber, getAccountType(), decimalFormat.format(getBalance()));
+        return String.format("%10s  |%20s | %32s", accountNumber, getAccountType(), decimalFormat.format(getBalance()));
     }
 
     //lich su giao dich
+
+
     public List<Transaction> getTransactions() {
         return transactions;
     }
@@ -104,29 +109,22 @@ public class Account implements Serializable {
     //Asm04
 
 
-    public ArrayList<Transaction> getTransactions(ArrayList<Transaction> transactionsList, String AccountNumber) {
+    public ArrayList<Transaction> getTransactions(ArrayList<Transaction> transactionsList, String accountNumber) {
 
-        for (Transaction transaction : transactionsList) {
+        for (Transaction transaction : transactions) {
             if (transaction.getAccoundNumber().equals(accountNumber)) {
-                accountTransactions.add(transaction);
+                transactionsList.add(transaction);
             }
         }
-        return accountTransactions;
+        return transactionsList;
     }
 
     public void displayTransactionsList() {
-        if (accountTransactions.isEmpty()) {
-            System.out.println("Khong tim thay giao dich");
-        } else {
-            {
-                for (Transaction t : accountTransactions) {
-                    t.toString();
-                }
-            }
-        }
+        transactions.forEach(t-> System.out.println(t.toString()));
+
     }
 
-    public void createTransaction(double amount, Date time, boolean status, TransactionType type) {
+    public void createTransaction(double amount, Date time, boolean status, TransactionType type) throws IOException {
         if (type == TransactionType.DEPOSIT) {
             balance += amount;
         } else if (type == TransactionType.WITHDRAW) {
@@ -134,8 +132,9 @@ public class Account implements Serializable {
         } else if (type == TransactionType.TRANFERS) {
             balance -= amount;
         }
-        Transaction transaction = new Transaction(getAccountNumber(), amount, new Date(), true, type);
+        Transaction transaction = new Transaction(getAccountNumber(), amount, time, true, type);
         addTransaction(transaction);
+        TransactionDao.save(getTransactions());
     }
 
 

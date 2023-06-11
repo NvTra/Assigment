@@ -1,9 +1,11 @@
 package vn.funix.fx22252.java.asm03.models;
 
 import vn.funix.fx22252.java.asm02.models.Account;
+import vn.funix.fx22252.java.asm04.dao.TransactionDao;
 import vn.funix.fx22252.java.asm04.model.IReport;
 import vn.funix.fx22252.java.asm04.model.ITransfer;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -32,14 +34,14 @@ public class SavingsAccount extends Account implements IReportService, IWithdraw
 
 
     @Override
-    public boolean withdraw(double amount) {
+    public boolean withdraw(double amount) throws IOException {
         if (isAccepted(amount)) {
             double newBalance = getBalance() - amount;
             setBalance(newBalance);
             System.out.println("G/D thanh cong");
             log(amount);
-            addTransaction(new Transaction(getAccountNumber(), -amount, new Date(), true));
-            addTransaction(new Transaction(getAccountNumber(), amount, new Date(), true, Transaction.TransactionType.WITHDRAW));
+            addTransaction(new Transaction(getAccountNumber(), -amount, new Date(), true, Transaction.TransactionType.WITHDRAW));
+            TransactionDao.save(getTransactions());
             return true;
         }
 
@@ -81,7 +83,7 @@ public class SavingsAccount extends Account implements IReportService, IWithdraw
     }
 
     @Override
-    public void transfer(Account receiveAccount, double amount) {
+    public void transfer(Account receiveAccount, double amount) throws IOException {
         if (isAccepted(amount)) {
             double newBalance;
             createTransaction(amount, new Date(), true, Transaction.TransactionType.TRANFERS);
@@ -89,6 +91,8 @@ public class SavingsAccount extends Account implements IReportService, IWithdraw
             receiveAccount.setBalance(newBalance);
             System.out.println("Chuyen tien thanh cong, bien lai giao dich: ");
             log(amount, Transaction.TransactionType.TRANFERS, receiveAccount);
+            addTransaction(new Transaction(getAccountNumber(), -amount, new Date(), true, Transaction.TransactionType.TRANFERS));
+            TransactionDao.save(getTransactions());
         } else {
             System.out.println("G/D khong thanh cong");
         }

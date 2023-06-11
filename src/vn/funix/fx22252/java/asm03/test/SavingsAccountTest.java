@@ -2,6 +2,7 @@ package vn.funix.fx22252.java.asm03.test;
 
 import vn.funix.fx22252.java.asm03.models.SavingsAccount;
 
+import java.io.IOException;
 import java.io.Serializable;
 
 import static org.junit.Assert.*;
@@ -18,7 +19,7 @@ public class SavingsAccountTest {
 
 
     @org.junit.Test
-    public void withdraw() {
+    public void withdraw() throws IOException {
         assertTrue(normalAccount.withdraw(50000.00));//rut tien TK Normal
         assertTrue(premiumAccount.withdraw(6000000)); // rut tien TK Premium
         assertFalse(normalAccount.withdraw(5000));// rut tien ko du so tien toi thieu
@@ -39,7 +40,7 @@ public class SavingsAccountTest {
     }
 
     @org.junit.Test
-    public void log() {
+    public void log() throws IOException {
         premiumAccount.withdraw(400000);
         premiumAccount.log(400000);
         normalAccount.withdraw(2000000);

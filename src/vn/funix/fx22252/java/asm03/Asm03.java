@@ -4,6 +4,7 @@ package vn.funix.fx22252.java.asm03;
 import vn.funix.fx22252.java.asm02.models.Customer;
 import vn.funix.fx22252.java.asm03.models.*;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -121,7 +122,7 @@ public class Asm03 {
         System.out.println("them tai khoan tin dung thanh cong");
     }
 
-    public static void withdraw() {
+    public static void withdraw() throws IOException {
         System.out.println("+----------+---------------------------------------+-------+");
         String accountNumber;
         do {

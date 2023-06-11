@@ -15,10 +15,10 @@ import java.util.regex.Pattern;
 public class DigitalBank extends Bank {
 
 
-    public Customer getCustomerById(String customerId) {
-        for (int i = 0; i < getCustomers().size(); i++) {
-            if (getCustomers().get(i).getCustomerId().equals(customerId)) {
-                return getCustomers().get(i);
+    public static Customer getCustomerById(String customerId) {
+        for (int i = 0; i < CustomerDao.list().size(); i++) {
+            if (CustomerDao.list().get(i).getCustomerId().equals(customerId)) {
+                return CustomerDao.list().get(i);
             }
         }
         return null;
@@ -56,7 +56,7 @@ public class DigitalBank extends Bank {
         return !super.isValidAccount(accountNumber);
     }
 
-    public boolean withdraw(String customerId, String accountNumber, double amount) {
+    public boolean withdraw(String customerId, String accountNumber, double amount) throws IOException {
         if (getCustomerById(customerId) == null) {
             System.out.println("Khach hang khong ton tai.");
             return false;
@@ -136,7 +136,7 @@ public class DigitalBank extends Bank {
 
     }
 
-    public void withdraw(Scanner scanner, String customerId) {
+    public void withdraw(Scanner scanner, String customerId) throws IOException {
         for (Customer customer : getCustomers()) {
             if ((customer.getCustomerId().equals(customerId))) {
                 customer.displayInformationN();

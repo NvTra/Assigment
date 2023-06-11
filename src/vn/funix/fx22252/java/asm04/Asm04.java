@@ -55,7 +55,7 @@ public class Asm04 {
                 } else if (select == 5) {
                     withdraw();
                 } else if (select == 6) {
-                    System.out.println("6");
+                    displayTransactionInformation();
                 } else {
                     System.out.println("Chuc nang khong hop le. Vui long chon lai");
                 }
@@ -65,7 +65,6 @@ public class Asm04 {
             }
         } while (select != 0);
     }
-
 
     private static void listCustomer() {
         activeBank.showCustomers();
@@ -134,4 +133,20 @@ public class Asm04 {
         AccountDao.save(activeBank.getCustomerById(customerId).getAccounts());
     }
 
+    private static void displayTransactionInformation() {
+        sc.nextLine();
+        String customerId;
+        while (true) {
+            System.out.println("Nhap ma so cua khach hang: ");
+            customerId = sc.nextLine();
+            if (!activeBank.validateCustomerId(customerId)) {
+                System.out.println("Ma so khong dung");
+            } else if (!activeBank.isCustomerExisted(customerId)) {
+                System.out.println("Khong tim thay khach hang " + customerId + ", tac vu khong thanh cong");
+            } else {
+                break;
+            }
+        }
+        activeBank.getCustomerById(customerId).displayTransactionInformation();
+    }
 }

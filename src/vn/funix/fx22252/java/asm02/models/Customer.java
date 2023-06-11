@@ -4,7 +4,6 @@ import vn.funix.fx22252.java.asm03.models.LoanAccount;
 import vn.funix.fx22252.java.asm03.models.SavingsAccount;
 import vn.funix.fx22252.java.asm03.models.Transaction;
 import vn.funix.fx22252.java.asm04.dao.AccountDao;
-import vn.funix.fx22252.java.asm04.dao.CustomerDao;
 
 
 import java.io.IOException;
@@ -62,7 +61,7 @@ public class Customer extends User implements Serializable {
 
     //kiem tra su ton tai cua maKH
     public boolean isAccountExisted(String accountNumber) {
-        for (Account account : accounts) {
+        for (Account account : getAccounts()) {
             if (account.getAccountNumber().equals(accountNumber)) {
                 return true;
             }
@@ -142,7 +141,7 @@ public class Customer extends User implements Serializable {
         List<Account> accounts = getAccountsN();
         if (accounts.size() > 0) {
             for (int j = 0; j < accounts.size(); j++) {
-                System.out.println((j + 1) + "   " + accounts.get(j).toString());
+                System.out.println((j + 1) + " " + accounts.get(j).toString());
             }
         }
     }
@@ -178,7 +177,7 @@ public class Customer extends User implements Serializable {
         account.createTransaction(0, new Date(), true, Transaction.TransactionType.DEPOSIT);
     }
 
-    public void withdraw(Scanner scanner) {
+    public void withdraw(Scanner scanner) throws IOException {
         List<Account> accounts = getAccounts();
         if (accounts.isEmpty()) {
             System.out.println("Khach hang khong co tai khoan nao, thao tac khong thanh cong");
@@ -212,9 +211,7 @@ public class Customer extends User implements Serializable {
             System.out.print("Nhap so tai khoan nhan:");
             receiveNumber = scanner.nextLine();
         } while (!isAccountExisted(receiveNumber));
-
-//        System.out.println("Gui tien den tai khoan: " + receiveNumber + "   |  ");
-
+        System.out.println("Gui tien den tai khoan: " + receiveNumber + "   |  " + getAccountsByAccountNumber(receiveNumber).getCustomer().getName());
         System.out.print("Nhap so tien chuyen: ");
         double amount = 0;
         while (amount < 50000) {
@@ -234,13 +231,30 @@ public class Customer extends User implements Serializable {
             }
         }
         while (!confirm.equalsIgnoreCase("y"));
-        for (Account account : accounts) {
+        for (Account account : getAccounts()) {
             if (account.getAccountNumber().equals(accNumber)) {
                 SavingsAccount acc = (SavingsAccount) getAccountsByAccountNumber(accNumber);
                 SavingsAccount recceiveAccount = (SavingsAccount) getAccountsByAccountNumber(receiveNumber);
                 acc.transfer(recceiveAccount, amount);
+                recceiveAccount.addTransaction(new Transaction(receiveNumber, amount, new Date(), true, Transaction.TransactionType.DEPOSIT));
             }
         }
         AccountDao.save(getAccounts());
+    }
+
+    public void displayTransactionInformation() {
+        DecimalFormat df = new DecimalFormat("#,###đ");
+        //hien thi thong tin khach hang
+        System.out.printf("%-16s|%20s |%8s | %22s\n", getCustomerId(), getName(), (isPremium() ? "Premium" : "Normal"), df.format(getTotalAccountBalance()));
+        // hien thi tai khoan khach hang
+        List<Account> accounts = getAccountsN();
+        if (accounts.size() > 0) {
+            for (int j = 0; j < accounts.size(); j++) {
+                System.out.println((j + 1) + "   " + accounts.get(j).toString());
+            }
+        }
+        for (Account account : getAccounts()) {
+            account.displayTransactionsList();
+        }
     }
 }

@@ -45,7 +45,7 @@ public class DigitalBankTest {
         activeBank.showCustomers();
     }
     @Test
-    public void testlinhtinh(){
+    public void testlinhtinh() throws IOException {
         Path path = Paths.get("store", "customers.txt");
         activeBank.addCustomers(String.valueOf(path));
         activeBank.addAccount("040095012040", new SavingsAccount("123456", 10000000));
