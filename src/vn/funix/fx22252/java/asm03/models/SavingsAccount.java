@@ -1,6 +1,7 @@
 package vn.funix.fx22252.java.asm03.models;
 
 import vn.funix.fx22252.java.asm02.models.Account;
+import vn.funix.fx22252.java.asm04.dao.AccountDao;
 import vn.funix.fx22252.java.asm04.dao.TransactionDao;
 import vn.funix.fx22252.java.asm04.model.IReport;
 import vn.funix.fx22252.java.asm04.model.ITransfer;
@@ -40,7 +41,7 @@ public class SavingsAccount extends Account implements IReportService, IWithdraw
             setBalance(newBalance);
             System.out.println("G/D thanh cong");
             log(amount);
-            addTransaction(new Transaction(getAccountNumber(), -amount, new Date(), true, Transaction.TransactionType.WITHDRAW));
+            addTransaction(new Transaction(getAccountNumber(), amount, new Date(), true, Transaction.TransactionType.WITHDRAW));
             TransactionDao.save(getTransactions());
             return true;
         }
@@ -86,12 +87,10 @@ public class SavingsAccount extends Account implements IReportService, IWithdraw
     public void transfer(Account receiveAccount, double amount) throws IOException {
         if (isAccepted(amount)) {
             double newBalance;
-            createTransaction(amount, new Date(), true, Transaction.TransactionType.TRANFERS);
-            newBalance = receiveAccount.getBalance() + amount;
-            receiveAccount.setBalance(newBalance);
+            createTransaction(amount, new Date(), true, Transaction.TransactionType.TRANFERS);//tạo giao dịch vào deposit 123456
+            receiveAccount.createTransaction(amount, new Date(), true, Transaction.TransactionType.DEPOSIT);
             System.out.println("Chuyen tien thanh cong, bien lai giao dich: ");
             log(amount, Transaction.TransactionType.TRANFERS, receiveAccount);
-            addTransaction(new Transaction(getAccountNumber(), -amount, new Date(), true, Transaction.TransactionType.TRANFERS));
             TransactionDao.save(getTransactions());
         } else {
             System.out.println("G/D khong thanh cong");

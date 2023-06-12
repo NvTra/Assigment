@@ -1,6 +1,7 @@
 package vn.funix.fx22252.java.asm04.dao;
 
 import vn.funix.fx22252.java.asm02.models.Account;
+import vn.funix.fx22252.java.asm02.models.Customer;
 import vn.funix.fx22252.java.asm04.service.BinaryFileService;
 
 import java.io.IOException;
@@ -53,17 +54,16 @@ public class AccountDao {
             executorService.execute(new Runnable() {
                 @Override
                 public void run() {
-                    for (Account account : accounts) {
+                    for (Customer customer:CustomerDao.list()){
+                    for (Account account : customer.getAccounts()) {
                         if (account.getAccountNumber().equals(editAccount.getAccountNumber())) {
                             updateAccounts.add(editAccount);
                         } else {
                             updateAccounts.add(account);
                         }
-                    }
+                    }}
                 }
             });
-
-
         }
         executorService.shutdown();
         while (!executorService.isTerminated()) {

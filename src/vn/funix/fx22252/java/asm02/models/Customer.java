@@ -6,6 +6,7 @@ import vn.funix.fx22252.java.asm03.models.SavingsAccount;
 import vn.funix.fx22252.java.asm03.models.Transaction;
 import vn.funix.fx22252.java.asm04.dao.AccountDao;
 import vn.funix.fx22252.java.asm04.dao.CustomerDao;
+import vn.funix.fx22252.java.asm04.dao.TransactionDao;
 
 
 import java.io.IOException;
@@ -186,8 +187,7 @@ public class Customer extends User implements Serializable {
         } while (balance < 50000);
         addAccount(new SavingsAccount(getCustomerId(), accountNumber, balance));
         AccountDao.save(getAccounts());
-        Account account = new Account(accountNumber, balance);
-        account.createTransaction(0, new Date(), true, Transaction.TransactionType.DEPOSIT);
+        getAccountsByAccountNumber(accountNumber).createTransaction(0, new Date(), true, Transaction.TransactionType.DEPOSIT);
     }
 
     public void withdraw(Scanner scanner) throws IOException {
@@ -237,22 +237,22 @@ public class Customer extends User implements Serializable {
         scanner.nextLine();
         String confirm;
         do {
-            System.out.print("Xac nhan thuc hien chuyen: " +String.format("%.1f đ",amount)  + " tu tai khoan [" + depositAccountNumber + "] den tai khoan [" + receiveNumber + "] (Y/N): ");
+            System.out.print("Xac nhan thuc hien chuyen: " + String.format("%.1f đ", amount) + " tu tai khoan [" + depositAccountNumber + "] den tai khoan [" + receiveNumber + "] (Y/N): ");
             confirm = scanner.nextLine();
-            if (confirm.equalsIgnoreCase("n")) {
-                break;
-            }
-            for (Customer customer : CustomerDao.list()) {
-                for (Account account : customer.getAccounts()) {
-                    if (account.getAccountNumber().equals(depositAccountNumber)) {
-                        SavingsAccount acc = (SavingsAccount) getAccountsByAccountNumber(depositAccountNumber);
-                        SavingsAccount recceiveAccount = (SavingsAccount) getAccountbyAccountNumberN(receiveNumber);
-                        acc.transfer(recceiveAccount, amount);
-                        AccountDao.update2(acc);
-                        AccountDao.update2(recceiveAccount);
-                        recceiveAccount.addTransaction(new Transaction(receiveNumber, amount, new Date(), true, Transaction.TransactionType.DEPOSIT));
+            if (confirm.equalsIgnoreCase("y")) {
+                SavingsAccount acc = (SavingsAccount) getAccountsByAccountNumber(depositAccountNumber);
+                for (Customer customer : CustomerDao.list()) {
+                    for (Account account : customer.getAccounts()) {
+                        if (account.getAccountNumber().equals(receiveNumber)) {
+                            SavingsAccount receiveAccount = (SavingsAccount) getAccountbyAccountNumberN(receiveNumber);
+                            acc.transfer(receiveAccount, amount);
+                            AccountDao.update2(acc);
+                            AccountDao.update2(receiveAccount);
+                        }
                     }
+
                 }
+                break;
             }
         }
         while (!confirm.equalsIgnoreCase("n"));

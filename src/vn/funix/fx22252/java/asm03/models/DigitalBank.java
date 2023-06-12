@@ -57,7 +57,6 @@ public class DigitalBank extends Bank {
     }
 
 
-
     public boolean withdraw(String customerId, String accountNumber, double amount) throws IOException {
         if (getCustomerById(customerId) == null) {
             System.out.println("Khach hang khong ton tai.");
@@ -90,6 +89,7 @@ public class DigitalBank extends Bank {
         }
         return false;
     }
+
     public void addCustomers(String fileName) {
         try {
             Scanner sc = new Scanner(new BufferedReader(new FileReader(fileName)));
@@ -169,8 +169,8 @@ public class DigitalBank extends Bank {
                 customer.transfers(scanner);
             }
         }
-        CustomerDao.save(getCustomers());
 
+        CustomerDao.save(getCustomers());
     }
 
     public boolean isAccountExisted(List<Account> accountsList, Account newAccount) {
@@ -213,6 +213,7 @@ public class DigitalBank extends Bank {
             }
         }
     }
+
     public static Customer getCustomerbyAccountNumber(String accountNumber) {
         for (Customer customer : CustomerDao.list()) {
             for (Account account : customer.getAccounts()) {

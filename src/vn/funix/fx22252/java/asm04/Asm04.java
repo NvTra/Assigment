@@ -80,6 +80,7 @@ public class Asm04 {
     }
 
     private static void addATMAccount() throws IOException {
+        System.out.println("+----------------------------------------------------------+");
         String customerId;
         sc.nextLine();
 
@@ -100,6 +101,7 @@ public class Asm04 {
     }
 
     public static void transfer() throws IOException {
+        System.out.println("+----------------------------------------------------------+");
         sc.nextLine();
         String customerId;
         while (true) {
@@ -117,6 +119,7 @@ public class Asm04 {
     }
 
     public static void withdraw() throws IOException {
+        System.out.println("+----------------------------------------------------------+");
         sc.nextLine();
         String customerId;
         while (true) {
@@ -136,6 +139,7 @@ public class Asm04 {
     }
 
     private static void displayTransactionInformation() {
+        System.out.println("+----------------------------------------------------------+");
         sc.nextLine();
         String customerId;
         while (true) {
