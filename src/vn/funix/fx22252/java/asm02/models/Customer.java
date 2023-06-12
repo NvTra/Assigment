@@ -125,12 +125,14 @@ public class Customer extends User implements Serializable {
     }
 
     public boolean isAccountExisted(List<Account> accountsList, Account newAccount) {
-        for (Account account : accountsList) {
-            if (account.getAccountNumber().equals(newAccount.getAccountNumber())) {
-                return true;
-            }
-        }
-        return false;
+        return accountsList.stream()
+                .anyMatch(account -> account.getAccountNumber().equals(newAccount.getAccountNumber()));
+//        for (Account account : accountsList) {
+//            if (account.getAccountNumber().equals(newAccount.getAccountNumber())) {
+//                return true;
+//            }
+//        }
+//        return false;
     }
 
     public boolean isValidAcounttNumber(String accountNumber) {
@@ -162,12 +164,16 @@ public class Customer extends User implements Serializable {
     }
 
     public Account getAccountByAccountNumber(List<Account> accounts, String accountNumber) {
-        for (Account account : accounts) {
-            if (account.getAccountNumber().equals(accountNumber)) {
-                return account;
-            }
-        }
-        return null;
+        return accounts.stream()
+                .filter(account -> account.getAccountNumber().equals(accountNumber))
+                .findFirst()
+                .orElse(null);
+//        for (Account account : accounts) {
+//            if (account.getAccountNumber().equals(accountNumber)) {
+//                return account;
+//            }
+//        }
+//        return null;
     }
 
     public void input(Scanner scanner) throws IOException {
@@ -250,18 +256,11 @@ public class Customer extends User implements Serializable {
                             AccountDao.update2(receiveAccount);
                         }
                     }
-
                 }
                 break;
             }
         }
         while (!confirm.equalsIgnoreCase("n"));
-
-
-//            AccountDao.save(getAccounts());
-//            AccountDao.save(DigitalBank.getCustomerbyAccountNumber(receiveNumber).getAccounts());
-
-
     }
 
     public void displayTransactionInformation() {

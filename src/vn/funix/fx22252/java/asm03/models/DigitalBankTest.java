@@ -3,12 +3,17 @@ package vn.funix.fx22252.java.asm03.models;
 import org.junit.Before;
 import org.junit.Test;
 
+import vn.funix.fx22252.java.asm02.models.Customer;
+import vn.funix.fx22252.java.asm04.dao.CustomerDao;
 import vn.funix.fx22252.java.asm04.exception.CustomerIdNotValidException;
 
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 
 public class DigitalBankTest {
@@ -34,7 +39,12 @@ public class DigitalBankTest {
     public void addAccount() throws IOException {
         activeBank.addSavingAccount(new Scanner(System.in), "040095012040");
     }
+    @Test
+    public void isCustomerExisted (){
+        assertTrue(activeBank.isCustomerExisted(CustomerDao.list(),new Customer("hoang","040095012040")));
+        assertFalse(activeBank.isCustomerExisted(CustomerDao.list(),new Customer("hoang","040095012043")));
 
+    }
 
 
     @Test

@@ -167,28 +167,32 @@ public class DigitalBank extends Bank {
             if ((customer.getCustomerId().equals(customerId))) {
                 customer.displayInformationN();
                 customer.transfers(scanner);
+                CustomerDao.save(getCustomers());
             }
         }
 
-        CustomerDao.save(getCustomers());
     }
 
     public boolean isAccountExisted(List<Account> accountsList, Account newAccount) {
-        for (Account account : accountsList) {
-            if (account.getAccountNumber().equals(newAccount.getAccountNumber())) {
-                return true;
-            }
-        }
-        return false;
+        return accountsList.stream()
+                .anyMatch(account -> account.getAccountNumber().equals(newAccount.getAccountNumber()));
+//        for (Account account : accountsList) {
+//            if (account.getAccountNumber().equals(newAccount.getAccountNumber())) {
+//                return true;
+//            }
+//        }
+//        return false;
     }
 
     public boolean isCustomerExisted(List<Customer> customers, Customer newCustomer) {
-        for (Customer customer : customers) {
-            if (customer.getCustomerId().equals(newCustomer.getCustomerId())) {
-                return true;
-            }
-        }
-        return false;
+        return customers.stream()
+                .anyMatch(customer -> customer.getCustomerId().equals(newCustomer.getCustomerId()));
+//        for (Customer customer : customers) {
+//            if (customer.getCustomerId().equals(newCustomer.getCustomerId())) {
+//                return true;
+//            }
+//        }
+//        return false;
     }
 
     public String getCustomerById(List<Customer> customerList, String customerId) {

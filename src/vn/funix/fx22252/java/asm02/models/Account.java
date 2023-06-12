@@ -12,6 +12,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static vn.funix.fx22252.java.asm03.models.Transaction.*;
 
@@ -110,17 +111,19 @@ public class Account implements Serializable {
 
 
     public ArrayList<Transaction> getTransactions(ArrayList<Transaction> transactionsList, String accountNumber) {
-
-        for (Transaction transaction : transactions) {
-            if (transaction.getAccoundNumber().equals(accountNumber)) {
-                transactionsList.add(transaction);
-            }
-        }
+        transactions.stream()
+                .filter(transaction -> transaction.getAccoundNumber().equals(accountNumber))
+                .collect(Collectors.toList());
+//        for (Transaction transaction : transactions) {
+//            if (transaction.getAccoundNumber().equals(accountNumber)) {
+//                transactionsList.add(transaction);
+//            }
+//        }
         return transactionsList;
     }
 
     public void displayTransactionsList() {
-        transactions.forEach(t-> System.out.println(t.toString()));
+        transactions.forEach(t -> System.out.println(t.toString()));
 
     }
 
@@ -132,10 +135,8 @@ public class Account implements Serializable {
         } else if (type == TransactionType.TRANFERS) {
             balance -= amount;
         }
-        Transaction transaction = new Transaction(getAccountNumber(), amount, time, true, type);
+        Transaction transaction = new Transaction(getAccountNumber(), (amount == 0 ? balance : amount), time, true, type);
         addTransaction(transaction);
         TransactionDao.save(getTransactions());
     }
-
-
 }
