@@ -140,7 +140,7 @@ public class Customer extends User implements Serializable {
 
     //Ass04
     public List<Account> getAccountsN() {
-        List<Account> accountList = AccountDao.list();
+        List<Account> accountList = AccountDao.list();//adaoList
         return accountList
                 .stream()
                 .filter(account -> account.getCustomerId().equals(this.getCustomerId()))

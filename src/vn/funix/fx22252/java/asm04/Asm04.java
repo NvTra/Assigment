@@ -25,13 +25,13 @@ public class Asm04 {
                         +----------+---------------------------------------+-------+
                         | NGAN HANG SO | FX22252@4.0.0                             |
                         +----------+---------------------------------------+-------+
-                        | 1. Xem danh sách khách hàng                              |
-                        | 2. Nhập danh sách khách hàng                             |
-                        | 3. Thêm tài khoản ATM                                    |
-                        | 4. Chuyển tiền                                           |
-                        | 5. Rút tiền                                              |
-                        | 6. Tra cứu lịch sử giao dịch                             |
-                        | 0. Thoát                                                 |
+                        | 1. Xem danh sach khach hang                              |
+                        | 2. Nhap danh sach khach hang                             |
+                        | 3. Them tai khoan ATM                                    |
+                        | 4. Chuyen tien                                           |
+                        | 5. Rut tien                                              |
+                        | 6. Tra cuu lich su giao dich                             |
+                        | 0. Thoat                                                 |
                         +----------+---------------------------------------+-------+
                         """);
         System.out.print("Chuc nang: ");
