@@ -1,8 +1,6 @@
-package vn.funix.fx22252.java.asm02.models;
+package vn.funix.fx22252.java.asm04.common;
 
 
-import vn.funix.fx22252.java.asm03.models.DigitalBank;
-import vn.funix.fx22252.java.asm03.models.Transaction;
 import vn.funix.fx22252.java.asm04.dao.TransactionDao;
 
 
@@ -14,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static vn.funix.fx22252.java.asm03.models.Transaction.*;
+import static vn.funix.fx22252.java.asm04.common.Transaction.*;
 
 public class Account implements Serializable {
 
@@ -123,13 +121,13 @@ public class Account implements Serializable {
     }
 
     public void displayTransactionsList() {
-        transactions.forEach(t -> System.out.println(t.toString()));
+        TransactionDao.list().forEach(t -> System.out.println(t.toString()));
 
     }
 
     public void createTransaction(double amount, Date time, boolean status, TransactionType type) throws IOException {
         if (type == TransactionType.DEPOSIT) {
-            balance += amount;
+            balance += amount;// them tien
         } else if (type == TransactionType.WITHDRAW) {
             balance -= amount;
         } else if (type == TransactionType.TRANFERS) {

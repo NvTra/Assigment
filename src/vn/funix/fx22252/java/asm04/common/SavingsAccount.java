@@ -1,7 +1,7 @@
-package vn.funix.fx22252.java.asm03.models;
+package vn.funix.fx22252.java.asm04.common;
 
-import vn.funix.fx22252.java.asm02.models.Account;
-import vn.funix.fx22252.java.asm04.dao.AccountDao;
+import vn.funix.fx22252.java.asm03.models.IReportService;
+import vn.funix.fx22252.java.asm03.models.IWithdraw;
 import vn.funix.fx22252.java.asm04.dao.TransactionDao;
 import vn.funix.fx22252.java.asm04.model.IReport;
 import vn.funix.fx22252.java.asm04.model.ITransfer;
@@ -89,9 +89,10 @@ public class SavingsAccount extends Account implements IReportService, IWithdraw
             double newBalance;
             createTransaction(amount, new Date(), true, Transaction.TransactionType.TRANFERS);//tạo giao dịch vào deposit 123456
             receiveAccount.createTransaction(amount, new Date(), true, Transaction.TransactionType.DEPOSIT);
+            //cái dòng trên tk nhận tiêện sẽ cộng
             System.out.println("Chuyen tien thanh cong, bien lai giao dich: ");
             log(amount, Transaction.TransactionType.TRANFERS, receiveAccount);
-            TransactionDao.save(getTransactions());
+//            TransactionDao.save(getTransactions());
         } else {
             System.out.println("G/D khong thanh cong");
         }

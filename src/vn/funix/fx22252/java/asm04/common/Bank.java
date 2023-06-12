@@ -1,4 +1,4 @@
-package vn.funix.fx22252.java.asm02.models;
+package vn.funix.fx22252.java.asm04.common;
 
 
 

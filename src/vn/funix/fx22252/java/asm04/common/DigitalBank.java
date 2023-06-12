@@ -1,8 +1,6 @@
-package vn.funix.fx22252.java.asm03.models;
+package vn.funix.fx22252.java.asm04.common;
 
-import vn.funix.fx22252.java.asm02.models.Account;
-import vn.funix.fx22252.java.asm02.models.Bank;
-import vn.funix.fx22252.java.asm02.models.Customer;
+import vn.funix.fx22252.java.asm03.models.LoanAccount;
 import vn.funix.fx22252.java.asm04.dao.CustomerDao;
 
 

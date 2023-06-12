@@ -1,6 +1,6 @@
 package vn.funix.fx22252.java.asm04.dao;
 
-import vn.funix.fx22252.java.asm02.models.Customer;
+import vn.funix.fx22252.java.asm04.common.Customer;
 import vn.funix.fx22252.java.asm04.service.BinaryFileService;
 
 

@@ -1,7 +1,7 @@
 package vn.funix.fx22252.java.asm04.model;
 
-import vn.funix.fx22252.java.asm02.models.Account;
-import vn.funix.fx22252.java.asm03.models.Transaction;
+import vn.funix.fx22252.java.asm04.common.Account;
+import vn.funix.fx22252.java.asm04.common.Transaction;
 
 
 public interface IReport {

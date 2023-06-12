@@ -1,6 +1,6 @@
 package vn.funix.fx22252.java.asm04.dao;
 
-import vn.funix.fx22252.java.asm03.models.Transaction;
+import vn.funix.fx22252.java.asm04.common.Transaction;
 import vn.funix.fx22252.java.asm04.service.BinaryFileService;
 
 import java.io.IOException;

@@ -3,7 +3,9 @@ package vn.funix.fx22252.java.asm03.models;
 import org.junit.Before;
 import org.junit.Test;
 
-import vn.funix.fx22252.java.asm02.models.Customer;
+import vn.funix.fx22252.java.asm04.common.Customer;
+import vn.funix.fx22252.java.asm04.common.DigitalBank;
+import vn.funix.fx22252.java.asm04.common.SavingsAccount;
 import vn.funix.fx22252.java.asm04.dao.CustomerDao;
 import vn.funix.fx22252.java.asm04.exception.CustomerIdNotValidException;
 

@@ -1,12 +1,8 @@
-package vn.funix.fx22252.java.asm02.models;
+package vn.funix.fx22252.java.asm04.common;
 
-import vn.funix.fx22252.java.asm03.models.DigitalBank;
 import vn.funix.fx22252.java.asm03.models.LoanAccount;
-import vn.funix.fx22252.java.asm03.models.SavingsAccount;
-import vn.funix.fx22252.java.asm03.models.Transaction;
 import vn.funix.fx22252.java.asm04.dao.AccountDao;
 import vn.funix.fx22252.java.asm04.dao.CustomerDao;
-import vn.funix.fx22252.java.asm04.dao.TransactionDao;
 
 
 import java.io.IOException;
@@ -144,7 +140,7 @@ public class Customer extends User implements Serializable {
 
     //Ass04
     public List<Account> getAccountsN() {
-        List<Account> accountList = getAccounts();
+        List<Account> accountList = AccountDao.list();
         return accountList
                 .stream()
                 .filter(account -> account.getCustomerId().equals(this.getCustomerId()))
@@ -268,7 +264,7 @@ public class Customer extends User implements Serializable {
         //hien thi thong tin khach hang
         System.out.printf("%-13s| %-32s |%8s | %22s\n", getCustomerId(), getName(), (isPremium() ? "Premium" : "Normal"), df.format(getTotalAccountBalance()));
         // hien thi tai khoan khach hang
-        List<Account> accounts = getAccountsN();
+        List<Account> accounts = AccountDao.list();
         if (accounts.size() > 0) {
             for (int j = 0; j < accounts.size(); j++) {
                 System.out.println((j + 1) + accounts.get(j).toString());

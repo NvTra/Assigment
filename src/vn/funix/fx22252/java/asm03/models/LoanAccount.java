@@ -1,6 +1,7 @@
 package vn.funix.fx22252.java.asm03.models;
 
-import vn.funix.fx22252.java.asm02.models.Account;
+import vn.funix.fx22252.java.asm04.common.Account;
+import vn.funix.fx22252.java.asm04.common.Transaction;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;

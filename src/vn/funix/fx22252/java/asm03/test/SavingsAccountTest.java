@@ -1,9 +1,8 @@
 package vn.funix.fx22252.java.asm03.test;
 
-import vn.funix.fx22252.java.asm03.models.SavingsAccount;
+import vn.funix.fx22252.java.asm04.common.SavingsAccount;
 
 import java.io.IOException;
-import java.io.Serializable;
 
 import static org.junit.Assert.*;
 

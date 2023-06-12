@@ -2,8 +2,7 @@ package vn.funix.fx22252.java.asm03.test;
 
 import org.junit.Before;
 import org.junit.Test;
-import vn.funix.fx22252.java.asm02.models.Account;
-import vn.funix.fx22252.java.asm02.models.Customer;
+import vn.funix.fx22252.java.asm04.common.*;
 import vn.funix.fx22252.java.asm03.models.*;
 
 import java.io.IOException;

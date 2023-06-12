@@ -1,8 +1,11 @@
 package vn.funix.fx22252.java.asm03;
 
 
-import vn.funix.fx22252.java.asm02.models.Customer;
+import vn.funix.fx22252.java.asm04.common.Customer;
 import vn.funix.fx22252.java.asm03.models.*;
+import vn.funix.fx22252.java.asm04.common.DigitalBank;
+import vn.funix.fx22252.java.asm04.common.SavingsAccount;
+import vn.funix.fx22252.java.asm04.common.Transaction;
 
 import java.io.IOException;
 import java.util.Date;

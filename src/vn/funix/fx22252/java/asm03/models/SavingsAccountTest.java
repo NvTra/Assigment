@@ -2,10 +2,9 @@ package vn.funix.fx22252.java.asm03.models;
 
 import org.junit.Before;
 import org.junit.Test;
+import vn.funix.fx22252.java.asm04.common.SavingsAccount;
 
 import java.io.IOException;
-
-import static org.junit.Assert.*;
 
 public class SavingsAccountTest {
     private SavingsAccount sa;

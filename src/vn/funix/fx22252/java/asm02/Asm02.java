@@ -1,8 +1,8 @@
 package vn.funix.fx22252.java.asm02;
 
-import vn.funix.fx22252.java.asm02.models.Account;
-import vn.funix.fx22252.java.asm02.models.Bank;
-import vn.funix.fx22252.java.asm02.models.Customer;
+import vn.funix.fx22252.java.asm04.common.Account;
+import vn.funix.fx22252.java.asm04.common.Bank;
+import vn.funix.fx22252.java.asm04.common.Customer;
 
 
 import java.util.Scanner;
