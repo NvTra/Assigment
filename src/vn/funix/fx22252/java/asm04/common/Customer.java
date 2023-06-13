@@ -103,7 +103,7 @@ public class Customer extends User implements Serializable {
 
     public static Account getAccountbyAccountNumberN(String accountNumber) {
         for (Customer customer : CustomerDao.list()) {
-            for (Account account : customer.getAccounts()) {
+            for (Account account : AccountDao.list()) {
                 if (account.getAccountNumber().equals(accountNumber)) {
                     return account;
                 }
@@ -249,24 +249,22 @@ public class Customer extends User implements Serializable {
                 System.out.print("Xac nhan thuc hien chuyen: " + String.format("%.1f đ", amount) + " tu tai khoan [" + depositAccountNumber + "] den tai khoan [" + receiveNumber + "] (Y/N): ");
                 confirm = scanner.nextLine();
                 if (confirm.equalsIgnoreCase("y")) {
-                    SavingsAccount depositAccount = (SavingsAccount) getAccountsByAccountNumber(depositAccountNumber);
-                    for (Customer customer : CustomerDao.list()) {
-                        for (Account account : customer.getAccounts()) {
-                            if (account.getAccountNumber().equals(receiveNumber)) {
-                                SavingsAccount receiveAccount = (SavingsAccount) getAccountbyAccountNumberN(receiveNumber);
-                                depositAccount.transfer(receiveAccount, amount);
-                                AccountDao.update2(receiveAccount);
-                                AccountDao.update2(depositAccount);
-                            }
+                    SavingsAccount depositAccount = (SavingsAccount) getAccountbyAccountNumberN(depositAccountNumber);
+//                    for (Customer customer : CustomerDao.list()) {
+                    for (Account account : AccountDao.list()) {
+                        if (account.getAccountNumber().equals(receiveNumber)) {
+                            SavingsAccount receiveAccount = (SavingsAccount) getAccountbyAccountNumberN(receiveNumber);
+                            depositAccount.transfer(receiveAccount, amount);
+                            AccountDao.update2(receiveAccount);
+                            AccountDao.update2(depositAccount);
                         }
+//                        }
                     }
                     break;
                 }
             }
             while (!confirm.equalsIgnoreCase("n"));
         }
-
-
     }
 
     public void displayTransactionInformation() {

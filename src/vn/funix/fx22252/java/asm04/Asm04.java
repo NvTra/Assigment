@@ -113,6 +113,7 @@ public class Asm04 {
             }
         }
         activeBank.tranfers(new Scanner(System.in), customerId);
+        CustomerDao.save(activeBank.getCustomers());
     }
 
     public static void withdraw() throws IOException {

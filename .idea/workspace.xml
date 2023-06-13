@@ -6,15 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="4e0eb08b-08ef-4db4-89b7-14449731455c" name="Changes" comment="99% hoàn thiện">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/common/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/common/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm03/models/SavingsAccountTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/Asm04.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/Asm04.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/common/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/common/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/common/DigitalBank.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/dao/AccountDao$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/dao/AccountDao$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/dao/AccountDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/dao/AccountDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/common/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/common/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/common/DigitalBank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/common/DigitalBank.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm03/models/SavingsAccountTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/Asm04.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/Asm04.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/common/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/common/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/common/DigitalBank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/common/DigitalBank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/dao/AccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/dao/AccountDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/accounts.dat" beforeDir="false" afterPath="$PROJECT_DIR$/store/accounts.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/customers.dat" beforeDir="false" afterPath="$PROJECT_DIR$/store/customers.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/transactions.dat" beforeDir="false" afterPath="$PROJECT_DIR$/store/transactions.dat" afterDir="false" />
@@ -87,14 +86,14 @@
       <recent name="D:\1.HocLapTrinhFunix\JavaPRO192x.3.1.VN\PRO192x_ASM_tranvfx22252\src\vn\funix\fx22252\java\asm04" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="vn.funix.fx22252.java.asm03.models" />
       <recent name="vn.funix.fx22252.java.asm04.service" />
+      <recent name="vn.funix.fx22252.java.asm04.common" />
+      <recent name="vn.funix.fx22252.java.asm03.models" />
       <recent name="vn.funix.fx22252.java.asm04.dao" />
       <recent name="vn.funix.fx22252.java.asm03" />
-      <recent name="vn.funix.fx22252.java.asm02.models" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Asm04">
+  <component name="RunManager" selected="JUnit.SavingsAccountTest.transfer">
     <configuration name="Asm04" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="vn.funix.fx22252.java.asm04.Asm04" />
       <module name="PRO192x_ASM_tranvfx22252" />
@@ -108,17 +107,65 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DigitalBankTest.isCustomerExisted" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BinaryFileServiceTest.readFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PRO192x_ASM_tranvfx22252" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="vn.funix.fx22252.java.asm04.common.*" />
+          <option name="PATTERN" value="vn.funix.fx22252.java.asm04.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="vn.funix.fx22252.java.asm03.models" />
-      <option name="MAIN_CLASS_NAME" value="vn.funix.fx22252.java.asm03.models.DigitalBankTest" />
-      <option name="METHOD_NAME" value="isCustomerExisted" />
+      <option name="PACKAGE_NAME" value="vn.funix.fx22252.java.asm04.test" />
+      <option name="MAIN_CLASS_NAME" value="vn.funix.fx22252.java.asm04.test.BinaryFileServiceTest" />
+      <option name="METHOD_NAME" value="readFile" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BinaryFileServiceTest.writeFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PRO192x_ASM_tranvfx22252" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vn.funix.fx22252.java.asm04.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="vn.funix.fx22252.java.asm04.test" />
+      <option name="MAIN_CLASS_NAME" value="vn.funix.fx22252.java.asm04.test.BinaryFileServiceTest" />
+      <option name="METHOD_NAME" value="writeFile" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DigitalBankTest.addCustomers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PRO192x_ASM_tranvfx22252" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vn.funix.fx22252.java.asm04.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="vn.funix.fx22252.java.asm04.test" />
+      <option name="MAIN_CLASS_NAME" value="vn.funix.fx22252.java.asm04.test.DigitalBankTest" />
+      <option name="METHOD_NAME" value="addCustomers" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SavingsAccountTest.transfer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PRO192x_ASM_tranvfx22252" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vn.funix.fx22252.java.asm04.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="vn.funix.fx22252.java.asm04.test" />
+      <option name="MAIN_CLASS_NAME" value="vn.funix.fx22252.java.asm04.test.SavingsAccountTest" />
+      <option name="METHOD_NAME" value="transfer" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -126,12 +173,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.Asm04" />
-      <item itemvalue="JUnit.DigitalBankTest.isCustomerExisted" />
+      <item itemvalue="JUnit.BinaryFileServiceTest.readFile" />
+      <item itemvalue="JUnit.BinaryFileServiceTest.writeFile" />
+      <item itemvalue="JUnit.DigitalBankTest.addCustomers" />
+      <item itemvalue="JUnit.SavingsAccountTest.transfer" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SavingsAccountTest.transfer" />
         <item itemvalue="Application.Asm04" />
-        <item itemvalue="JUnit.DigitalBankTest.isCustomerExisted" />
+        <item itemvalue="JUnit.BinaryFileServiceTest.readFile" />
+        <item itemvalue="JUnit.BinaryFileServiceTest.writeFile" />
+        <item itemvalue="JUnit.DigitalBankTest.addCustomers" />
       </list>
     </recent_temporary>
   </component>
@@ -232,19 +285,21 @@
           <line>192</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/common/DigitalBank.java</url>
-          <line>235</line>
-          <properties class="vn.funix.fx22252.java.asm04.common.DigitalBank" method="saveTransaction">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="49" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/common/Customer.java</url>
+          <line>255</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/common/Customer.java</url>
+          <line>256</line>
+          <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="vn.funix.fx22252.java.asm04.common.Customer" memberName="accounts" />
         <PinnedItemInfo parentTag="vn.funix.fx22252.java.asm02.models.Account" memberName="serialVersionUID" />
         <PinnedItemInfo parentTag="vn.funix.fx22252.java.asm03.models.DigitalBank" memberName="id" />
       </pinned-members>

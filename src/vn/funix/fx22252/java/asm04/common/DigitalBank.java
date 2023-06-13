@@ -176,14 +176,13 @@ public class DigitalBank extends Bank {
     }
 
     public void tranfers(Scanner scanner, String customerId) throws IOException {
-        for (Customer customer : getCustomers()) {
+        for (Customer customer : CustomerDao.list()) {
             if ((customer.getCustomerId().equals(customerId))) {
                 customer.displayInformationN();
                 customer.transfers(scanner);
             }
         }
-
-        CustomerDao.save(getCustomers());
+//        CustomerDao.save(getCustomers());
         saveTransaction();
     }
 
