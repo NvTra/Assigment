@@ -2,7 +2,7 @@ package vn.funix.fx22252.java.asm04.common;
 
 import vn.funix.fx22252.java.asm03.models.IReportService;
 import vn.funix.fx22252.java.asm03.models.IWithdraw;
-import vn.funix.fx22252.java.asm04.dao.TransactionDao;
+import vn.funix.fx22252.java.asm04.dao.AccountDao;
 import vn.funix.fx22252.java.asm04.model.IReport;
 import vn.funix.fx22252.java.asm04.model.ITransfer;
 
@@ -37,12 +37,10 @@ public class SavingsAccount extends Account implements IReportService, IWithdraw
     @Override
     public boolean withdraw(double amount) throws IOException {
         if (isAccepted(amount)) {
-            double newBalance = getBalance() - amount;
-            setBalance(newBalance);
+            createTransaction(amount, new Date(), true, Transaction.TransactionType.WITHDRAW);
+            AccountDao.update2(getCustomer().getAccountByAccountNumber(AccountDao.list(), getAccountNumber()));
             System.out.println("G/D thanh cong");
             log(amount);
-            addTransaction(new Transaction(getAccountNumber(), amount, new Date(), true, Transaction.TransactionType.WITHDRAW));
-            TransactionDao.save(getTransactions());
             return true;
         }
 
@@ -87,12 +85,10 @@ public class SavingsAccount extends Account implements IReportService, IWithdraw
     public void transfer(Account receiveAccount, double amount) throws IOException {
         if (isAccepted(amount)) {
             double newBalance;
-            createTransaction(amount, new Date(), true, Transaction.TransactionType.TRANFERS);//tạo giao dịch vào deposit 123456
+            createTransaction(amount, new Date(), true, Transaction.TransactionType.TRANFERS);
             receiveAccount.createTransaction(amount, new Date(), true, Transaction.TransactionType.DEPOSIT);
-            //cái dòng trên tk nhận tiêện sẽ cộng
             System.out.println("Chuyen tien thanh cong, bien lai giao dich: ");
             log(amount, Transaction.TransactionType.TRANFERS, receiveAccount);
-//            TransactionDao.save(getTransactions());
         } else {
             System.out.println("G/D khong thanh cong");
         }

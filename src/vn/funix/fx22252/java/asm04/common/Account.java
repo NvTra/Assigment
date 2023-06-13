@@ -1,6 +1,8 @@
 package vn.funix.fx22252.java.asm04.common;
 
 
+import vn.funix.fx22252.java.asm04.dao.AccountDao;
+import vn.funix.fx22252.java.asm04.dao.CustomerDao;
 import vn.funix.fx22252.java.asm04.dao.TransactionDao;
 
 
@@ -108,20 +110,16 @@ public class Account implements Serializable {
     //Asm04
 
 
-    public ArrayList<Transaction> getTransactions(ArrayList<Transaction> transactionsList, String accountNumber) {
-        transactions.stream()
+    public List<Transaction> getTransactionsN() {
+        List<Transaction> transactionsList = getTransactions();
+        return transactionsList
+                .stream()
                 .filter(transaction -> transaction.getAccoundNumber().equals(accountNumber))
                 .collect(Collectors.toList());
-//        for (Transaction transaction : transactions) {
-//            if (transaction.getAccoundNumber().equals(accountNumber)) {
-//                transactionsList.add(transaction);
-//            }
-//        }
-        return transactionsList;
     }
 
     public void displayTransactionsList() {
-        TransactionDao.list().forEach(t -> System.out.println(t.toString()));
+        getTransactionsN().forEach(t -> System.out.println(t.toString()));
 
     }
 
@@ -133,8 +131,14 @@ public class Account implements Serializable {
         } else if (type == TransactionType.TRANFERS) {
             balance -= amount;
         }
+
         Transaction transaction = new Transaction(getAccountNumber(), (amount == 0 ? balance : amount), time, true, type);
         addTransaction(transaction);
-        TransactionDao.save(getTransactions());
+        List<Transaction> transactionList = new ArrayList<>();
+
+        for (Account account : getCustomer().getAccounts()) {
+            transactionList.addAll(account.getTransactions());
+        }
+        TransactionDao.save(transactionList);
     }
 }

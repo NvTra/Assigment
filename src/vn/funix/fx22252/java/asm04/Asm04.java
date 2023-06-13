@@ -3,7 +3,6 @@ package vn.funix.fx22252.java.asm04;
 
 import vn.funix.fx22252.java.asm04.common.Customer;
 import vn.funix.fx22252.java.asm04.common.DigitalBank;
-import vn.funix.fx22252.java.asm04.dao.AccountDao;
 import vn.funix.fx22252.java.asm04.dao.CustomerDao;
 
 import java.io.IOException;
@@ -15,7 +14,6 @@ public class Asm04 {
     private final static DigitalBank activeBank = new DigitalBank();
 
     public static void main(String[] args) {
-        activeBank.startUp();
         programSelection();
     }
 
@@ -38,7 +36,7 @@ public class Asm04 {
     }
 
     public static void programSelection() {
-
+        activeBank.startUp();
         int select = 0;
 
         do {
@@ -83,7 +81,6 @@ public class Asm04 {
         System.out.println("+----------------------------------------------------------+");
         String customerId;
         sc.nextLine();
-
         while (true) {
             System.out.println("Nhap ma so cua khach hang: ");
             customerId = sc.nextLine();
@@ -109,7 +106,7 @@ public class Asm04 {
             customerId = sc.nextLine();
             if (!activeBank.validateCustomerId(customerId)) {
                 System.out.println("Ma so khong dung");
-            } else if (!activeBank.isCustomerExisted(customerId)) {
+            } else if (!activeBank.isCustomerExisted(CustomerDao.list(), new Customer("", customerId))) {
                 System.out.println("Khong tim thay khach hang " + customerId + ", tac vu khong thanh cong");
             } else {
                 break;
@@ -127,7 +124,7 @@ public class Asm04 {
             customerId = sc.nextLine();
             if (!activeBank.validateCustomerId(customerId)) {
                 System.out.println("Ma so khong dung");
-            } else if (!activeBank.isCustomerExisted(customerId)) {
+            } else if (!activeBank.isCustomerExisted(CustomerDao.list(), new Customer("", customerId))) {
                 System.out.println("Khong tim thay khach hang " + customerId + ", tac vu khong thanh cong");
             } else {
                 break;
@@ -135,7 +132,6 @@ public class Asm04 {
         }
         activeBank.withdraw(new Scanner(System.in), customerId);
         CustomerDao.save(activeBank.getCustomers());
-        AccountDao.save(activeBank.getCustomerById(customerId).getAccounts());
     }
 
     private static void displayTransactionInformation() {
@@ -147,7 +143,7 @@ public class Asm04 {
             customerId = sc.nextLine();
             if (!activeBank.validateCustomerId(customerId)) {
                 System.out.println("Ma so khong dung");
-            } else if (!activeBank.isCustomerExisted(customerId)) {
+            } else if (!activeBank.isCustomerExisted(CustomerDao.list(), new Customer("", customerId))) {
                 System.out.println("Khong tim thay khach hang " + customerId + ", tac vu khong thanh cong");
             } else {
                 break;

@@ -188,8 +188,8 @@ public class Customer extends User implements Serializable {
             }
         } while (balance < 50000);
         addAccount(new SavingsAccount(getCustomerId(), accountNumber, balance));
-        AccountDao.save(getAccounts());
         getAccountsByAccountNumber(accountNumber).createTransaction(0, new Date(), true, Transaction.TransactionType.DEPOSIT);
+
     }
 
     public void withdraw(Scanner scanner) throws IOException {
@@ -202,7 +202,7 @@ public class Customer extends User implements Serializable {
             do {
                 System.out.print("Nhap so tai khoan: ");
                 account = getAccountByAccountNumber(accounts, scanner.nextLine());
-            } while (accounts == null);
+            } while (account == null);
             do {
                 System.out.print("Nhap so tien rut: ");
                 amout = Double.parseDouble(scanner.nextLine());
@@ -216,6 +216,7 @@ public class Customer extends User implements Serializable {
     }
 
     public void transfers(Scanner scanner) throws IOException {
+
         String depositAccountNumber;
         do {
             System.out.print("Nhap so tai khoan:");
@@ -248,8 +249,6 @@ public class Customer extends User implements Serializable {
                         if (account.getAccountNumber().equals(receiveNumber)) {
                             SavingsAccount receiveAccount = (SavingsAccount) getAccountbyAccountNumberN(receiveNumber);
                             acc.transfer(receiveAccount, amount);
-                            AccountDao.update2(acc);
-                            AccountDao.update2(receiveAccount);
                         }
                     }
                 }
@@ -260,16 +259,7 @@ public class Customer extends User implements Serializable {
     }
 
     public void displayTransactionInformation() {
-        DecimalFormat df = new DecimalFormat("#,###đ");
-        //hien thi thong tin khach hang
-        System.out.printf("%-13s| %-32s |%8s | %22s\n", getCustomerId(), getName(), (isPremium() ? "Premium" : "Normal"), df.format(getTotalAccountBalance()));
-        // hien thi tai khoan khach hang
-        List<Account> accounts = AccountDao.list();
-        if (accounts.size() > 0) {
-            for (int j = 0; j < accounts.size(); j++) {
-                System.out.println((j + 1) + accounts.get(j).toString());
-            }
-        }
+        displayInformationN();
         getAccounts().forEach(account -> account.displayTransactionsList());
 
     }

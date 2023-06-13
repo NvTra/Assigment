@@ -45,7 +45,8 @@ public class AccountDao {
         // Tạo ExecutorService để sử dụng multi-thread
         ExecutorService executorService = Executors.newFixedThreadPool(MAX_THREAD);
         List<Account> accounts = list();
-        boolean hasExits = accounts.stream().anyMatch(account -> account.getAccountNumber().equals(editAccount.getAccountNumber()));
+        boolean hasExits = accounts.stream()
+                .anyMatch(account -> account.getAccountNumber().equals(editAccount.getAccountNumber()));
         List<Account> updateAccounts;
         updateAccounts = new ArrayList<>();
         if (!hasExits) {
@@ -54,14 +55,13 @@ public class AccountDao {
             executorService.execute(new Runnable() {
                 @Override
                 public void run() {
-                    for (Customer customer:CustomerDao.list()){
-                    for (Account account : customer.getAccounts()) {
+                    for (Account account : AccountDao.list()) {
                         if (account.getAccountNumber().equals(editAccount.getAccountNumber())) {
                             updateAccounts.add(editAccount);
                         } else {
                             updateAccounts.add(account);
                         }
-                    }}
+                    }
                 }
             });
         }

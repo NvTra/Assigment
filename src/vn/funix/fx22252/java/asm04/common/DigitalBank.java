@@ -7,6 +7,7 @@ import vn.funix.fx22252.java.asm04.dao.CustomerDao;
 
 import java.io.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -141,14 +142,19 @@ public class DigitalBank extends Bank {
 
 
     public void addSavingAccount(Scanner scanner, String customerId) throws IOException {
+        List<Account> accounts = new ArrayList<>();
         for (Customer customer : getCustomers()) {
+
             if (customer.getCustomerId().equals(customerId)) {
                 customer.input(scanner);
-                CustomerDao.save(getCustomers());
                 System.out.println("Tao tai khoan thanh cong");
             }
         }
-
+        for (Customer customer : getCustomers()) {
+            accounts.addAll(customer.getAccounts());
+        }
+        AccountDao.save(accounts);
+        CustomerDao.save(getCustomers());
     }
 
     public void withdraw(Scanner scanner, String customerId) throws IOException {
@@ -158,6 +164,11 @@ public class DigitalBank extends Bank {
                 customer.withdraw(scanner);
             }
         }
+        List<Account> accounts = new ArrayList<>();
+        for (Customer customer : getCustomers()) {
+            accounts.addAll(customer.getAccounts());
+        }
+        AccountDao.save(accounts);
 
     }
 
@@ -175,23 +186,11 @@ public class DigitalBank extends Bank {
     public boolean isAccountExisted(List<Account> accountsList, Account newAccount) {
         return accountsList.stream()
                 .anyMatch(account -> account.getAccountNumber().equals(newAccount.getAccountNumber()));
-//        for (Account account : accountsList) {
-//            if (account.getAccountNumber().equals(newAccount.getAccountNumber())) {
-//                return true;
-//            }
-//        }
-//        return false;
     }
 
     public boolean isCustomerExisted(List<Customer> customers, Customer newCustomer) {
         return customers.stream()
                 .anyMatch(customer -> customer.getCustomerId().equals(newCustomer.getCustomerId()));
-//        for (Customer customer : customers) {
-//            if (customer.getCustomerId().equals(newCustomer.getCustomerId())) {
-//                return true;
-//            }
-//        }
-//        return false;
     }
 
     public String getCustomerById(List<Customer> customerList, String customerId) {
