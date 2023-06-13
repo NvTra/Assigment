@@ -6,12 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="4e0eb08b-08ef-4db4-89b7-14449731455c" name="Changes" comment="99% hoàn thiện">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/common/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/common/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/common/SavingsAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/common/SavingsAccount.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/common/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/common/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/common/SavingsAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/common/SavingsAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/common/DigitalBank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PRO192x_ASM_tranvfx22252/vn/funix/fx22252/java/asm04/common/DigitalBank.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/common/DigitalBank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/common/DigitalBank.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/accounts.dat" beforeDir="false" afterPath="$PROJECT_DIR$/store/accounts.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/customers.dat" beforeDir="false" afterPath="$PROJECT_DIR$/store/customers.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/customers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/store/customers.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/transactions.dat" beforeDir="false" afterPath="$PROJECT_DIR$/store/transactions.dat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -274,19 +273,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="99% hoàn thiện" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/vn/funix/fx22252/java/asm04/common/SavingsAccount.java</url>
-          <line>37</line>
-          <properties class="vn.funix.fx22252.java.asm04.common.SavingsAccount" method="withdraw">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="vn.funix.fx22252.java.asm04.common.Customer" memberName="accounts" />

@@ -112,9 +112,7 @@ public class DigitalBank extends Bank {
                     getCustomers().add(new Customer(name, customerID));
                 }
             }
-            if (CustomerDao.list().isEmpty()) {
-                CustomerDao.save(getCustomers());
-            }
+            CustomerDao.save(getCustomers());
         } catch (FileNotFoundException e) {
             System.out.println("File khong ton tai");
         } catch (IOException e) {
