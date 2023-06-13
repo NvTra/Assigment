@@ -216,46 +216,55 @@ public class Customer extends User implements Serializable {
     }
 
     public void transfers(Scanner scanner) throws IOException {
+        List<Account> accountList = getAccounts();
 
-        String depositAccountNumber;
-        do {
-            System.out.print("Nhap so tai khoan:");
-            depositAccountNumber = scanner.nextLine();
-        } while (!isAccountExisted(depositAccountNumber));
-        String receiveNumber;
-        do {
-            System.out.print("Nhap so tai khoan nhan:");
-            receiveNumber = scanner.nextLine();
-        } while (!DigitalBank.isAccoutexist(receiveNumber));
-        System.out.println("Gui tien den tai khoan: " + receiveNumber + "   |  " + DigitalBank.getCustomerbyAccountNumber(receiveNumber).getName());
-        System.out.print("Nhap so tien chuyen: ");
-        double amount = 0;
-        while (amount < 50000) {
-            amount = scanner.nextDouble();
-            if (amount < 50000) {
-                System.out.println("So tien khong hop le. ");
-                scanner.nextLine();
+        if (accountList.isEmpty()) {
+            System.out.println("Khach hang khong co tai khoan nao, thao ta khong thanh cong");
+        } else {
+            String depositAccountNumber;
+            do {
+                System.out.print("Nhap so tai khoan:");
+                depositAccountNumber = scanner.nextLine();
+            } while (!isAccountExisted(depositAccountNumber));
+            String receiveNumber;
+            do {
+                System.out.print("Nhap so tai khoan nhan:");
+                receiveNumber = scanner.nextLine();
+            } while (!DigitalBank.isAccoutexist(receiveNumber));
+            System.out.println("Gui tien den tai khoan: " + receiveNumber + "   |  " + DigitalBank.getCustomerbyAccountNumber(receiveNumber).getName());
+            System.out.print("Nhap so tien chuyen: ");
+            double amount = 0;
+            while (amount < 50000) {
+                amount = scanner.nextDouble();
+                if (amount < 50000) {
+                    System.out.println("So tien khong hop le. ");
+                    scanner.nextLine();
+                }
             }
-        }
-        scanner.nextLine();
-        String confirm;
-        do {
-            System.out.print("Xac nhan thuc hien chuyen: " + String.format("%.1f đ", amount) + " tu tai khoan [" + depositAccountNumber + "] den tai khoan [" + receiveNumber + "] (Y/N): ");
-            confirm = scanner.nextLine();
-            if (confirm.equalsIgnoreCase("y")) {
-                SavingsAccount acc = (SavingsAccount) getAccountsByAccountNumber(depositAccountNumber);
-                for (Customer customer : CustomerDao.list()) {
-                    for (Account account : customer.getAccounts()) {
-                        if (account.getAccountNumber().equals(receiveNumber)) {
-                            SavingsAccount receiveAccount = (SavingsAccount) getAccountbyAccountNumberN(receiveNumber);
-                            acc.transfer(receiveAccount, amount);
+            scanner.nextLine();
+            String confirm;
+            do {
+                System.out.print("Xac nhan thuc hien chuyen: " + String.format("%.1f đ", amount) + " tu tai khoan [" + depositAccountNumber + "] den tai khoan [" + receiveNumber + "] (Y/N): ");
+                confirm = scanner.nextLine();
+                if (confirm.equalsIgnoreCase("y")) {
+                    SavingsAccount depositAccount = (SavingsAccount) getAccountsByAccountNumber(depositAccountNumber);
+                    for (Customer customer : CustomerDao.list()) {
+                        for (Account account : customer.getAccounts()) {
+                            if (account.getAccountNumber().equals(receiveNumber)) {
+                                SavingsAccount receiveAccount = (SavingsAccount) getAccountbyAccountNumberN(receiveNumber);
+                                depositAccount.transfer(receiveAccount, amount);
+                                AccountDao.update2(receiveAccount);
+                                AccountDao.update2(depositAccount);
+                            }
                         }
                     }
+                    break;
                 }
-                break;
             }
+            while (!confirm.equalsIgnoreCase("n"));
         }
-        while (!confirm.equalsIgnoreCase("n"));
+
+
     }
 
     public void displayTransactionInformation() {

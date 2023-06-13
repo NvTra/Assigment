@@ -169,7 +169,6 @@ public class DigitalBank extends Bank {
             accounts.addAll(customer.getAccounts());
         }
         AccountDao.save(accounts);
-
     }
 
     public void tranfers(Scanner scanner, String customerId) throws IOException {
