@@ -132,7 +132,7 @@ public class Asm04 {
             }
         }
         activeBank.withdraw(new Scanner(System.in), customerId);
-        CustomerDao.save(activeBank.getCustomers());
+//        CustomerDao.save(activeBank.getCustomers());
     }
 
     private static void displayTransactionInformation() {

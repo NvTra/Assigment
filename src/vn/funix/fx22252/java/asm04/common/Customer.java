@@ -72,7 +72,7 @@ public class Customer extends User implements Serializable {
     // phuong thuc tinh tong so du
     public double getTotalAccountBalance() {
         double totalBalance = 0;
-        for (Account account : accounts) {
+        for (Account account : getAccountsN()) {
             totalBalance += account.getBalance();
         }
         return totalBalance;
@@ -195,7 +195,7 @@ public class Customer extends User implements Serializable {
     }
 
     public void withdraw(Scanner scanner) throws IOException {
-        List<Account> accounts = getAccounts();
+        List<Account> accounts = getAccountsN();//getAccounts()
         if (accounts.isEmpty()) {
             System.out.println("Khach hang khong co tai khoan nao, thao tac khong thanh cong");
         } else {

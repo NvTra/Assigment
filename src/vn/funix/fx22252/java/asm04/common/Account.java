@@ -1,8 +1,6 @@
 package vn.funix.fx22252.java.asm04.common;
 
 
-import vn.funix.fx22252.java.asm04.dao.AccountDao;
-import vn.funix.fx22252.java.asm04.dao.CustomerDao;
 import vn.funix.fx22252.java.asm04.dao.TransactionDao;
 
 
@@ -123,7 +121,7 @@ public class Account implements Serializable {
 
     }
 
-    public void createTransaction(double amount, Date time, boolean status, TransactionType type) throws IOException {
+    public void createTransaction(double amount, Date time, boolean status, TransactionType type) {
         if (type == TransactionType.DEPOSIT) {
             balance += amount;// them tien
         } else if (type == TransactionType.WITHDRAW) {

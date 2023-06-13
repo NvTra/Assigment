@@ -43,7 +43,6 @@ public class SavingsAccount extends Account implements IReportService, IWithdraw
             log(amount);
             return true;
         }
-
         System.out.println("G/D that bai");
         return false;
     }

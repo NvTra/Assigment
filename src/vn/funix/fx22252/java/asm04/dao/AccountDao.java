@@ -73,4 +73,8 @@ public class AccountDao {
         }
         save(updateAccounts);
     }
+
+    public static List<Account> getListAccountByCusnumber(String cccd) {
+        return null;
+    }
 }

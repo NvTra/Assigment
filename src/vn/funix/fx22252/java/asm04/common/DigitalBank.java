@@ -161,17 +161,13 @@ public class DigitalBank extends Bank {
     }
 
     public void withdraw(Scanner scanner, String customerId) throws IOException {
-        for (Customer customer : getCustomers()) {
+        for (Customer customer : CustomerDao.list()) {
             if ((customer.getCustomerId().equals(customerId))) {
                 customer.displayInformationN();
                 customer.withdraw(scanner);
             }
         }
-        List<Account> accounts = new ArrayList<>();
-        for (Customer customer : getCustomers()) {
-            accounts.addAll(customer.getAccounts());
-        }
-        AccountDao.save(accounts);
+//        CustomerDao.save(getCustomers());
         saveTransaction();
     }
 
@@ -182,7 +178,8 @@ public class DigitalBank extends Bank {
                 customer.transfers(scanner);
             }
         }
-//        CustomerDao.save(getCustomers());
+
+        CustomerDao.save(getCustomers());
         saveTransaction();
     }
 
