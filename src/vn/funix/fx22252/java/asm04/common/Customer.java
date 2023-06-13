@@ -211,6 +211,7 @@ public class Customer extends User implements Serializable {
             } while (amout <= 0);
             if (account instanceof SavingsAccount) {
                 ((SavingsAccount) account).withdraw(amout);
+                AccountDao.update2((SavingsAccount) account);
             } else if (account instanceof LoanAccount) {
                 ((LoanAccount) account).withdraw(amout);
             }

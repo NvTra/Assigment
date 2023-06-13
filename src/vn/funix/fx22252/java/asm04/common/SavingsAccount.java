@@ -38,7 +38,7 @@ public class SavingsAccount extends Account implements IReportService, IWithdraw
     public boolean withdraw(double amount) throws IOException {
         if (isAccepted(amount)) {
             createTransaction(amount, new Date(), true, Transaction.TransactionType.WITHDRAW);
-            AccountDao.update2(getCustomer().getAccountByAccountNumber(AccountDao.list(), getAccountNumber()));
+//            AccountDao.update2(getCustomer().getAccountsByAccountNumber(getAccountNumber()));
             System.out.println("G/D thanh cong");
             log(amount);
             return true;
