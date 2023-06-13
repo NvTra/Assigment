@@ -13,8 +13,7 @@ public class User implements Serializable {
 
     //khoi tao constructor
     public User() {
-        this.name = name;
-        this.customerId = customerId;
+
     }
 
     public User(String name, String customerId) {

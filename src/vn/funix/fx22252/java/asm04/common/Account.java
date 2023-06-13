@@ -4,7 +4,6 @@ package vn.funix.fx22252.java.asm04.common;
 import vn.funix.fx22252.java.asm04.dao.TransactionDao;
 
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.ArrayList;

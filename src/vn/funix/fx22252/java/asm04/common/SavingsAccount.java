@@ -2,7 +2,6 @@ package vn.funix.fx22252.java.asm04.common;
 
 import vn.funix.fx22252.java.asm03.models.IReportService;
 import vn.funix.fx22252.java.asm03.models.IWithdraw;
-import vn.funix.fx22252.java.asm04.dao.AccountDao;
 import vn.funix.fx22252.java.asm04.model.IReport;
 import vn.funix.fx22252.java.asm04.model.ITransfer;
 
@@ -38,7 +37,6 @@ public class SavingsAccount extends Account implements IReportService, IWithdraw
     public boolean withdraw(double amount) throws IOException {
         if (isAccepted(amount)) {
             createTransaction(amount, new Date(), true, Transaction.TransactionType.WITHDRAW);
-//            AccountDao.update2(getCustomer().getAccountsByAccountNumber(getAccountNumber()));
             System.out.println("G/D thanh cong");
             log(amount);
             return true;
@@ -81,7 +79,7 @@ public class SavingsAccount extends Account implements IReportService, IWithdraw
     }
 
     @Override
-    public void transfer(Account receiveAccount, double amount) throws IOException {
+    public void transfer(Account receiveAccount, double amount) {
         if (isAccepted(amount)) {
             double newBalance;
             createTransaction(amount, new Date(), true, Transaction.TransactionType.TRANFERS);

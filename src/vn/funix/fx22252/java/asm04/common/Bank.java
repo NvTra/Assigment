@@ -2,8 +2,6 @@ package vn.funix.fx22252.java.asm04.common;
 
 
 
-import vn.funix.fx22252.java.asm04.dao.CustomerDao;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -11,8 +9,8 @@ import java.util.UUID;
 public class Bank {
     //khai bao thuoc tinh
     private final String id;
-    private List<Customer> customers;
-    private List<Customer> customerList= CustomerDao.list();;
+    private final List<Customer> customers;
+
 
     //khoi tao constructor
     public Bank() {

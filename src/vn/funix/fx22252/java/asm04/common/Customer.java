@@ -2,8 +2,6 @@ package vn.funix.fx22252.java.asm04.common;
 
 import vn.funix.fx22252.java.asm03.models.LoanAccount;
 import vn.funix.fx22252.java.asm04.dao.AccountDao;
-import vn.funix.fx22252.java.asm04.dao.CustomerDao;
-import vn.funix.fx22252.java.asm04.dao.TransactionDao;
 
 
 import java.io.IOException;
@@ -24,6 +22,10 @@ public class Customer extends User implements Serializable {
     //khoi tao constructor
     public Customer() {
         this.accounts = new ArrayList<>();
+    }
+
+    public Customer(List<String> values) {
+        this(values.get(1), values.get(0));
     }
 
     public Customer(String name, String customerId) {
@@ -50,7 +52,7 @@ public class Customer extends User implements Serializable {
 
     // Add TK cho KH
     public void addAccount(Account newAccount) {
-        for (Account acc : accounts) {
+        for (Account acc : AccountDao.list()) {
             if (acc.getAccountNumber().equals(newAccount.getAccountNumber())) {
                 System.out.println("Tai khoan da duoc su dung");
                 return;
@@ -102,14 +104,13 @@ public class Customer extends User implements Serializable {
     }
 
     public static Account getAccountbyAccountNumberN(String accountNumber) {
-        for (Customer customer : CustomerDao.list()) {
-            for (Account account : AccountDao.list()) {
-                if (account.getAccountNumber().equals(accountNumber)) {
-                    return account;
-                }
-
+        for (Account account : AccountDao.list()) {
+            if (account.getAccountNumber().equals(accountNumber)) {
+                return account;
             }
+
         }
+
         return null;
     }
 
@@ -124,12 +125,7 @@ public class Customer extends User implements Serializable {
     public boolean isAccountExisted(List<Account> accountsList, Account newAccount) {
         return accountsList.stream()
                 .anyMatch(account -> account.getAccountNumber().equals(newAccount.getAccountNumber()));
-//        for (Account account : accountsList) {
-//            if (account.getAccountNumber().equals(newAccount.getAccountNumber())) {
-//                return true;
-//            }
-//        }
-//        return false;
+
     }
 
     public boolean isValidAcounttNumber(String accountNumber) {
@@ -165,12 +161,6 @@ public class Customer extends User implements Serializable {
                 .filter(account -> account.getAccountNumber().equals(accountNumber))
                 .findFirst()
                 .orElse(null);
-//        for (Account account : accounts) {
-//            if (account.getAccountNumber().equals(accountNumber)) {
-//                return account;
-//            }
-//        }
-//        return null;
     }
 
     public void input(Scanner scanner) throws IOException {
@@ -211,7 +201,7 @@ public class Customer extends User implements Serializable {
             } while (amout <= 0);
             if (account instanceof SavingsAccount) {
                 ((SavingsAccount) account).withdraw(amout);
-                AccountDao.update2((SavingsAccount) account);
+                AccountDao.update2(account);
             } else if (account instanceof LoanAccount) {
                 ((LoanAccount) account).withdraw(amout);
             }
@@ -251,7 +241,7 @@ public class Customer extends User implements Serializable {
                 confirm = scanner.nextLine();
                 if (confirm.equalsIgnoreCase("y")) {
                     SavingsAccount depositAccount = (SavingsAccount) getAccountbyAccountNumberN(depositAccountNumber);
-//                    for (Customer customer : CustomerDao.list()) {
+
                     for (Account account : AccountDao.list()) {
                         if (account.getAccountNumber().equals(receiveNumber)) {
                             SavingsAccount receiveAccount = (SavingsAccount) getAccountbyAccountNumberN(receiveNumber);
@@ -259,7 +249,7 @@ public class Customer extends User implements Serializable {
                             AccountDao.update2(receiveAccount);
                             AccountDao.update2(depositAccount);
                         }
-//                        }
+
                     }
                     break;
                 }

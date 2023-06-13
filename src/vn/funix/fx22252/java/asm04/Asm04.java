@@ -6,6 +6,7 @@ import vn.funix.fx22252.java.asm04.common.DigitalBank;
 import vn.funix.fx22252.java.asm04.dao.CustomerDao;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Asm04 {
@@ -93,8 +94,6 @@ public class Asm04 {
             }
         }
         activeBank.addSavingAccount(new Scanner(System.in), customerId);
-
-
     }
 
     public static void transfer() throws IOException {
@@ -113,7 +112,7 @@ public class Asm04 {
             }
         }
         activeBank.tranfers(new Scanner(System.in), customerId);
-        CustomerDao.save(activeBank.getCustomers());
+//        CustomerDao.save(activeBank.getCustomers());
     }
 
     public static void withdraw() throws IOException {
@@ -150,6 +149,7 @@ public class Asm04 {
                 break;
             }
         }
-        activeBank.getCustomerById(customerId).displayTransactionInformation();
+
+        Objects.requireNonNull(DigitalBank.getCustomerById(customerId)).displayTransactionInformation();
     }
 }

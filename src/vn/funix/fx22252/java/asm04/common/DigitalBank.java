@@ -4,6 +4,7 @@ import vn.funix.fx22252.java.asm03.models.LoanAccount;
 import vn.funix.fx22252.java.asm04.dao.AccountDao;
 import vn.funix.fx22252.java.asm04.dao.CustomerDao;
 import vn.funix.fx22252.java.asm04.dao.TransactionDao;
+import vn.funix.fx22252.java.asm04.service.TextFileService;
 
 
 import java.io.*;
@@ -93,26 +94,24 @@ public class DigitalBank extends Bank {
 
     public void addCustomers(String fileName) {
         try {
-            Scanner sc = new Scanner(new BufferedReader(new FileReader(fileName)));
-            while (sc.hasNextLine()) {
-                String line = sc.nextLine();
-                String[] tokens = line.split(",");
-                if (tokens.length != 2) {
-                    System.out.println("du lieu khong hop le: " + line);
-                    continue;
-                }
-                String customerID = tokens[0];
-                String name = tokens[1];
-                if (!validateCustomerId(customerID)) {
-                    System.out.println("So CCCD " + customerID + " Khong hop le.");
-                } else if (isCustomerExisted(CustomerDao.list(), new Customer(name, customerID))) {
-                    System.out.println("Khach hang " + customerID + " da ton tai, them khach hang khong thanh cong");
-                } else {
-                    System.out.println("Da them khach hang " + customerID + " vao danh sach khach hang");
-                    getCustomers().add(new Customer(name, customerID));
+            List<List<String>> customerListFile = TextFileService.readFile(fileName);
+            List<Customer> customers = super.getCustomers();
+            if (customerListFile.isEmpty()) {
+                System.out.println("File khong hop le");
+            } else {
+                for (List<String> customer : customerListFile) {
+                    Customer newCustomer = new Customer(customer);
+                    if (!validateCustomerId(newCustomer.getCustomerId())) {
+                        System.out.println("So CCCD " + newCustomer.getCustomerId() + " Khong hop le.");
+                    } else if (isCustomerExisted(CustomerDao.list(), newCustomer)) {
+                        System.out.println("Khach hang " + newCustomer.getCustomerId() + " da ton tai, them khach hang khong thanh cong");
+                    } else {
+                        System.out.println("Da them khach hang " + newCustomer.getCustomerId() + " vao danh sach khach hang");
+                        customers.add(newCustomer);
+                    }
                 }
             }
-            CustomerDao.save(getCustomers());
+            CustomerDao.save(customers);
         } catch (FileNotFoundException e) {
             System.out.println("File khong ton tai");
         } catch (IOException e) {
@@ -143,7 +142,6 @@ public class DigitalBank extends Bank {
     public void addSavingAccount(Scanner scanner, String customerId) throws IOException {
         List<Account> accounts = new ArrayList<>();
         for (Customer customer : getCustomers()) {
-
             if (customer.getCustomerId().equals(customerId)) {
                 customer.input(scanner);
                 System.out.println("Tao tai khoan thanh cong");
@@ -176,8 +174,7 @@ public class DigitalBank extends Bank {
                 customer.transfers(scanner);
             }
         }
-
-        CustomerDao.save(getCustomers());
+//        CustomerDao.save(getCustomers());
         saveTransaction();
     }
 
@@ -200,19 +197,6 @@ public class DigitalBank extends Bank {
         return null;
     }
 
-    public void checkCustomerId(Scanner scanner, String customerId) {
-        while (true) {
-            System.out.println("Nhap ma so cua khach hang: ");
-            customerId = scanner.nextLine();
-            if (!validateCustomerId(customerId)) {
-                System.out.println("Ma so khong dung");
-            } else if (!isCustomerExisted(customerId)) {
-                System.out.println("Khong tim thay khach hang " + customerId + ", tac vu khong thanh cong");
-            } else {
-                break;
-            }
-        }
-    }
 
     public static Customer getCustomerbyAccountNumber(String accountNumber) {
         for (Customer customer : CustomerDao.list()) {
