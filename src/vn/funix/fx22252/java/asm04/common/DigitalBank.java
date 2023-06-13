@@ -3,6 +3,7 @@ package vn.funix.fx22252.java.asm04.common;
 import vn.funix.fx22252.java.asm03.models.LoanAccount;
 import vn.funix.fx22252.java.asm04.dao.AccountDao;
 import vn.funix.fx22252.java.asm04.dao.CustomerDao;
+import vn.funix.fx22252.java.asm04.dao.TransactionDao;
 
 
 import java.io.*;
@@ -153,8 +154,10 @@ public class DigitalBank extends Bank {
         for (Customer customer : getCustomers()) {
             accounts.addAll(customer.getAccounts());
         }
+
         AccountDao.save(accounts);
         CustomerDao.save(getCustomers());
+        saveTransaction();
     }
 
     public void withdraw(Scanner scanner, String customerId) throws IOException {
@@ -169,6 +172,7 @@ public class DigitalBank extends Bank {
             accounts.addAll(customer.getAccounts());
         }
         AccountDao.save(accounts);
+        saveTransaction();
     }
 
     public void tranfers(Scanner scanner, String customerId) throws IOException {
@@ -176,10 +180,11 @@ public class DigitalBank extends Bank {
             if ((customer.getCustomerId().equals(customerId))) {
                 customer.displayInformationN();
                 customer.transfers(scanner);
-                CustomerDao.save(getCustomers());
             }
         }
 
+        CustomerDao.save(getCustomers());
+        saveTransaction();
     }
 
     public boolean isAccountExisted(List<Account> accountsList, Account newAccount) {
@@ -226,5 +231,13 @@ public class DigitalBank extends Bank {
             }
         }
         return null;
+    }
+
+    public void saveTransaction() throws IOException {
+        List<Transaction> transactionList = new ArrayList<>();
+        for (Account account : AccountDao.list()) {
+            transactionList.addAll(account.getTransactions());
+        }
+        TransactionDao.save(transactionList);
     }
 }

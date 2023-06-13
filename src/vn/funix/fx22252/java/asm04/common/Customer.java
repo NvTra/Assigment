@@ -3,6 +3,7 @@ package vn.funix.fx22252.java.asm04.common;
 import vn.funix.fx22252.java.asm03.models.LoanAccount;
 import vn.funix.fx22252.java.asm04.dao.AccountDao;
 import vn.funix.fx22252.java.asm04.dao.CustomerDao;
+import vn.funix.fx22252.java.asm04.dao.TransactionDao;
 
 
 import java.io.IOException;
@@ -140,7 +141,7 @@ public class Customer extends User implements Serializable {
 
     //Ass04
     public List<Account> getAccountsN() {
-        List<Account> accountList = AccountDao.list();//adaoList
+        List<Account> accountList = AccountDao.list();
         return accountList
                 .stream()
                 .filter(account -> account.getCustomerId().equals(this.getCustomerId()))
@@ -189,6 +190,7 @@ public class Customer extends User implements Serializable {
         } while (balance < 50000);
         addAccount(new SavingsAccount(getCustomerId(), accountNumber, balance));
         getAccountsByAccountNumber(accountNumber).createTransaction(0, new Date(), true, Transaction.TransactionType.DEPOSIT);
+
 
     }
 
@@ -272,4 +274,6 @@ public class Customer extends User implements Serializable {
         getAccounts().forEach(account -> account.displayTransactionsList());
 
     }
+
+
 }

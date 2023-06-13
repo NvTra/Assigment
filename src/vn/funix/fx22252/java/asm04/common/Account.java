@@ -111,7 +111,7 @@ public class Account implements Serializable {
 
 
     public List<Transaction> getTransactionsN() {
-        List<Transaction> transactionsList = getTransactions();
+        List<Transaction> transactionsList = TransactionDao.list();
         return transactionsList
                 .stream()
                 .filter(transaction -> transaction.getAccoundNumber().equals(accountNumber))
@@ -134,11 +134,6 @@ public class Account implements Serializable {
 
         Transaction transaction = new Transaction(getAccountNumber(), (amount == 0 ? balance : amount), time, true, type);
         addTransaction(transaction);
-        List<Transaction> transactionList = new ArrayList<>();
 
-        for (Account account : getCustomer().getAccounts()) {
-            transactionList.addAll(account.getTransactions());
-        }
-        TransactionDao.save(transactionList);
     }
 }

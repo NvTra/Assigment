@@ -55,13 +55,15 @@ public class AccountDao {
             executorService.execute(new Runnable() {
                 @Override
                 public void run() {
-                    for (Account account : AccountDao.list()) {
-                        if (account.getAccountNumber().equals(editAccount.getAccountNumber())) {
-                            updateAccounts.add(editAccount);
-                        } else {
-                            updateAccounts.add(account);
+
+                        for (Account account : AccountDao.list()) {
+                            if (account.getAccountNumber().equals(editAccount.getAccountNumber())) {
+                                updateAccounts.add(editAccount);
+                            } else {
+                                updateAccounts.add(account);
+                            }
                         }
-                    }
+
                 }
             });
         }
