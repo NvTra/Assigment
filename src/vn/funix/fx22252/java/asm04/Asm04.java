@@ -37,9 +37,7 @@ public class Asm04 {
     }
 
     public static void programSelection() {
-        activeBank.startUp();
         int select = 0;
-
         do {
             showMenu();
             try {

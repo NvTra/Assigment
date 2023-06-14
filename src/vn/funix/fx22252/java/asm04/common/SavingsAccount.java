@@ -81,7 +81,6 @@ public class SavingsAccount extends Account implements IReportService, IWithdraw
     @Override
     public void transfer(Account receiveAccount, double amount) {
         if (isAccepted(amount)) {
-            double newBalance;
             createTransaction(amount, new Date(), true, Transaction.TransactionType.TRANFERS);
             receiveAccount.createTransaction(amount, new Date(), true, Transaction.TransactionType.DEPOSIT);
             System.out.println("Chuyen tien thanh cong, bien lai giao dich: ");

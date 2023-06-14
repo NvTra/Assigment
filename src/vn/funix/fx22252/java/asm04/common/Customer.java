@@ -52,7 +52,7 @@ public class Customer extends User implements Serializable {
 
     // Add TK cho KH
     public void addAccount(Account newAccount) {
-        for (Account acc : AccountDao.list()) {
+        for (Account acc : getAccounts()) {//getAccountsN()
             if (acc.getAccountNumber().equals(newAccount.getAccountNumber())) {
                 System.out.println("Tai khoan da duoc su dung");
                 return;
@@ -63,7 +63,7 @@ public class Customer extends User implements Serializable {
 
     //kiem tra su ton tai cua maKH
     public boolean isAccountExisted(String accountNumber) {
-        for (Account account : getAccounts()) {
+        for (Account account : getAccountsN()) {
             if (account.getAccountNumber().equals(accountNumber)) {
                 return true;
             }
@@ -163,7 +163,7 @@ public class Customer extends User implements Serializable {
                 .orElse(null);
     }
 
-    public void input(Scanner scanner) throws IOException {
+    public List<Account> input(Scanner scanner) throws IOException {
         String accountNumber;
         do {
             System.out.print("Nhap so tai khoan gom 6 chu so: ");
@@ -180,8 +180,7 @@ public class Customer extends User implements Serializable {
         } while (balance < 50000);
         addAccount(new SavingsAccount(getCustomerId(), accountNumber, balance));
         getAccountsByAccountNumber(accountNumber).createTransaction(0, new Date(), true, Transaction.TransactionType.DEPOSIT);
-
-
+        return getAccounts();
     }
 
     public void withdraw(Scanner scanner) throws IOException {
@@ -209,7 +208,7 @@ public class Customer extends User implements Serializable {
     }
 
     public void transfers(Scanner scanner) throws IOException {
-        List<Account> accountList = getAccounts();
+        List<Account> accountList = getAccountsN();
 
         if (accountList.isEmpty()) {
             System.out.println("Khach hang khong co tai khoan nao, thao ta khong thanh cong");
@@ -260,7 +259,7 @@ public class Customer extends User implements Serializable {
 
     public void displayTransactionInformation() {
         displayInformationN();
-        getAccounts().forEach(account -> account.displayTransactionsList());
+        getAccountsN().forEach(account -> account.displayTransactionsList());
 
     }
 

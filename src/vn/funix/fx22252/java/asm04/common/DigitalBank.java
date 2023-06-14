@@ -82,13 +82,13 @@ public class DigitalBank extends Bank {
 
     //ASS 04
     public static boolean isAccoutexist(String accountNumber) {
-        for (Customer customer : CustomerDao.list()) {
-            for (Account account : customer.getAccounts()) {
+
+            for (Account account : AccountDao.list()) {
                 if (account.getAccountNumber().equals(accountNumber)) {
                     return true;
                 }
             }
-        }
+
         return false;
     }
 
@@ -119,13 +119,6 @@ public class DigitalBank extends Bank {
         }
     }
 
-    public void startUp() {
-        if (!CustomerDao.list().isEmpty()) {
-            for (Customer object : CustomerDao.list()) {
-                getCustomers().add(object);
-            }
-        }
-    }
 
     public void showCustomers() {
         List<Customer> customersList = CustomerDao.list();
@@ -141,18 +134,14 @@ public class DigitalBank extends Bank {
 
     public void addSavingAccount(Scanner scanner, String customerId) throws IOException {
         List<Account> accounts = new ArrayList<>();
-        for (Customer customer : getCustomers()) {
+        List<Customer> customers = CustomerDao.list();//getCustomers()
+        for (Customer customer : customers) {
+            accounts.addAll(customer.getAccountsN());
             if (customer.getCustomerId().equals(customerId)) {
-                customer.input(scanner);
-                System.out.println("Tao tai khoan thanh cong");
+                accounts.addAll(customer.input(scanner));
             }
         }
-        for (Customer customer : getCustomers()) {
-            accounts.addAll(customer.getAccounts());
-        }
-
         AccountDao.save(accounts);
-        CustomerDao.save(getCustomers());
         saveTransaction();
     }
 
@@ -200,7 +189,7 @@ public class DigitalBank extends Bank {
 
     public static Customer getCustomerbyAccountNumber(String accountNumber) {
         for (Customer customer : CustomerDao.list()) {
-            for (Account account : customer.getAccounts()) {
+            for (Account account : customer.getAccountsN()) {
                 if (account.getAccountNumber().equals(accountNumber)) {
                     account.getCustomer();
                     return customer;
